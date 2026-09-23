@@ -1,0 +1,4 @@
+.ipynb_checkpoints/
+__pycache__/
+# Marker-only file; never commit a fake copy used for local testing
+WeeklyRent_test.csv
