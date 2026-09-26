@@ -46,3 +46,6 @@ Tool: Claude Code (Anthropic), running in a Claude Code on the web session.
 - I uploaded Week 4–5 tutorial files; the AI saved them to `tutorials/week04/` and `tutorials/week05/` and rewrote
   `tutorial_patterns.md` (KFold, `cross_val_score` with `neg_mean_squared_error`, CV loop for k, KNN with Mahalanobis
   distance, `knn_test` helper). Weeks 6–7 still to be provided.
+- I uploaded Week 6–7 tutorial files; the AI saved them to `tutorials/week06/` and `tutorials/week07/` and completed
+  `tutorial_patterns.md` (GridSearchCV, PolynomialFeatures + CV, AIC/BIC, backward elimination, manual standardisation,
+  Lasso/LassoCV) with a Gaps table. Checkpoint 0 reached; waiting for my approval.
