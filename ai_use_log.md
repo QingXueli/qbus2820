@@ -67,3 +67,5 @@ Tool: Claude Code (Anthropic), running in a Claude Code on the web session.
 **Decisions I made myself**
 - Standardisation inside CV folds via `Pipeline`.
 - Do EDA first; modelling decisions deferred.
+- Asked for a line-by-line explanation of the EDA code and whether the setup lines are needed / from the tutorials.
+  The AI wrote `notes/EDA_code_explained.md` and tested that removing the warnings/seaborn-style lines produces no warnings or errors.
