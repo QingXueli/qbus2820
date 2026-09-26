@@ -90,3 +90,4 @@ Tool: Claude Code (Anthropic), running in a Claude Code on the web session.
 - Decision (mine): quadratic-fit line in Section 2.6 changed from orange to green for contrast.
 - Decision (mine): write polynomial fits in separate steps (transformer -> fit_transform -> LinearRegression() -> fit), as in Week 6; applied in Sections 2.6 and 2.10.
 - Decision (mine): in Section 2.7, replace the list comprehension with an explicit for loop + append (tutorial style).
+- Asked for a summary of Section 2.7; the AI added a markdown summary cell after the group-means table.
