@@ -110,3 +110,4 @@ Tool: Claude Code (Anthropic), running in a Claude Code on the web session.
   overriding the CLAUDE.md Phase 1 item "residual plots from a baseline OLS". 2.10 is now "Baseline OLS model and outlier
   check" (OLS summary + standardised-residual outlier check). Summary items 5 and 9 no longer refer to residual plots.
   The AI also corrected an earlier chat statement: sigma_hat of the baseline OLS is 57.4 AUD, not 43.
+- Asked how to structure 2.10; the AI added comments to the baseline OLS cell and a short interpretation of its summary before the outlier check.
