@@ -1,7 +1,8 @@
 # Tutorial Patterns (Phase 0)
 
-> Status: **Weeks 1–7 read.** `QBUS2820_A1_context.md` (lecture list, §4) has **not** been provided,
-> so the Gaps section is based on the methods named in `CLAUDE.md` Phase 0 and Phase 2.
+> Status: **Weeks 1–7 read.** Lecture slides (Weeks 1–7) are now in `lectures/` and summarised in
+> `lecture_summary.md`, which serves as the method whitelist. Every method in the Gaps table below is covered
+> in the lectures (interactions: W2; subset selection: W4–5; ridge/elastic net: W6–7), so they are allowed.
 
 Files read:
 

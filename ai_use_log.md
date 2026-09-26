@@ -94,3 +94,8 @@ Tool: Claude Code (Anthropic), running in a Claude Code on the web session.
 - Asked to show the correlation of every predictor with WeeklyRent as a chart, and for the Section 2.8 conclusion.
   The AI added a sorted correlation table (Tutorial 5 style), a horizontal bar chart (marked NOTE) and a short summary.
   Also discussed multicollinearity: VIF not in tutorials; decided the correlation matrix (W5 approach) is sufficient for now.
+
+## 2026-09-26 (lectures)
+- I uploaded the Week 1–7 lecture slides. The AI saved them to `lectures/`, wrote `lecture_summary.md`
+  (topics per lecture, allowed methods, key points for modelling) and noted in `tutorial_patterns.md` that the
+  gap methods (interactions, subset selection, ridge, elastic net) are covered in the lectures.
