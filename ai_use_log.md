@@ -103,3 +103,6 @@ Tool: Claude Code (Anthropic), running in a Claude Code on the web session.
   or trial and error") and Lectures 4–5 (AIC): commented group-slope plots, base OLS AIC, one-at-a-time AIC screening of
   all 21 pairwise interactions (plain nested loops instead of itertools) and of 4 squared terms, and a short summary.
 - Decision (mine): renamed the Section 2.9 figure title (was 'Separate Linear Fits by Group'); the AI also added a title to each panel.
+- Decision (mine): AIC screening of candidate terms is a modelling step, so it was moved out of the EDA (option A).
+  Section 2.9 now contains only the group-slope plots and their interpretation; summary item 8 was rewritten from the
+  plots. The screening code and its results are kept in `notes/phase2_candidate_screening.md` for the modelling section.

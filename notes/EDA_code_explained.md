@@ -276,30 +276,7 @@ for i, (var, group) in enumerate(pairs):
 - `est.params.iloc[0]` = 截距，`iloc[1]` = 斜率；用 `b0 + b1·x` 画线（W2 c30 同一写法）。
 - 图例里写上斜率，便于比较。
 
-**思路（第二步：控制其他变量后的筛查）**：分组画图会被其他变量混淆（例如高需求区本来就更靠近 CBD）。所以在「含全部 7 个变量的 OLS」基础上，**每次只加一个候选项**，看 AIC 降了多少（W7 用 AIC 判断变量是否值得保留）。
-
-```python
-import itertools                                             # 【非 tutorial】Python 自带，用来生成所有两两组合
-
-x_with_intercept = sm.add_constant(train[predictors], prepend=True)
-base = sm.OLS(train[response], x_with_intercept).fit()       # 基准模型：7 个线性项
-```
-
-```python
-for var1, var2 in itertools.combinations(predictors, 2):     # 7 个变量两两组合，共 21 对
-    x = train[predictors].copy()                             # 复制一份，避免改动原数据
-    x['new_term'] = x[var1] * x[var2]                        # 交互项 = 两列相乘
-    est = sm.OLS(train[response], sm.add_constant(x, prepend=True)).fit()
-    screening.append({'Term': var1 + ' x ' + var2,
-                      'AIC drop': base.aic - est.aic,        # AIC 降幅：越大 = 这一项越有用
-                      'p-value': est.pvalues['new_term']})   # 这一项系数的 p 值
-```
-- 平方项同理：`x['new_term'] = x[var] ** 2`（只对非 0/1 变量，因为 0² = 0、1² = 1，没有新信息）。
-
-```python
-screening = pd.DataFrame(screening).sort_values('AIC drop', ascending = False).set_index('Term')
-```
-- 把结果做成表（W6 c27 用 list of dicts → DataFrame → `set_index("Model")` 的同一写法），按 AIC 降幅从大到小排。
+**第二步（AIC 筛查）已移到建模部分**：它需要拟合、比较模型，属于建模步骤。代码暂存在 `notes/phase2_candidate_screening.md`。
 
 ### 2.10 基线 OLS 残差
 
