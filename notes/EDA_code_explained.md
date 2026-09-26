@@ -122,11 +122,59 @@ plt.show()                                # 显示图
 
 ### 2.5 响应变量分布
 
+**思路（为什么做）**：看要预测的变量 `WeeklyRent` 本身长什么样——集中在哪、对不对称、有没有长尾。
+如果严重右偏（多数房子便宜、少数豪宅特别贵），通常要先对租金取对数 (log) 再建模，否则豪宅会过度影响模型。
+这一步决定**要不要对响应变量做变换**。
+
+**代码（写法同 W1、W2：`plt.figure()` → `plt.hist()` → 标签/标题 → `plt.show()`）**
+
 ```python
-plt.hist(train[response], bins=50)     # 租金直方图
-train[response].skew()                 # 偏度：0 = 对称；> 1 属于明显右偏，才考虑取 log
+fig = plt.figure()                              # 新建一张空白图
+
+plt.hist(train[response], bins=50)              # 租金直方图；response = 'WeeklyRent'
+                                                # bins=50：把租金范围切成 50 段，柱高 = 这一段里的房子数
+plt.xlabel("Weekly Rent (AUD)")                 # 横轴：租金（澳元）
+plt.ylabel("Number of Properties")              # 纵轴：房子数量
+plt.title("Distribution of Weekly Rent")        # 标题
+
+plt.show()                                      # 显示图
+
+print('Mean: {0:.4f}, median: {1:.4f}, std: {2:.4f}, skewness: {3:.4f}'.format(
+    train[response].mean(), train[response].median(), train[response].std(), train[response].skew()))
 ```
-- 偏度 0.27 → 接近对称 → 不需要对租金取对数。
+- `{0:.4f}`：把 `.format()` 里第 0 个值填进来，保留 4 位小数；`{1:.4f}` 是第 1 个值，以此类推（W1 `"{0:.2f}".format(...)` 的写法）。
+- `.mean()` 均值、`.median()` 中位数、`.std()` 标准差、`.skew()` 偏度。
+- `.median()`、`.skew()` 不在 tutorial 里（W1 只用 `.mean()`、`.var()`），但属于同类的基础 pandas 函数，按决定不加 NOTE。
+
+**图怎么读**
+- 钟形 (bell shape)：中间高、两边低、左右大致对称。
+- 大部分房子在 **600–1100 澳元**，最高的柱子在 850 左右。
+- 两边尾巴差不多长（最低约 200，最高约 1740），**没有一条特别长的右尾**。
+
+**数字怎么读**
+
+| 统计量 | 值 | 含义 |
+|---|---|---|
+| 均值 (mean) | 860.6811 | 平均每周租金约 861 澳元 |
+| 中位数 (median) | 849.0900 | 一半房子低于 849，一半高于 |
+| 标准差 (std) | 215.4138 | 租金大多在均值上下约 215 澳元范围内 |
+| 偏度 (skewness) | 0.2660 | 衡量是否对称（见下） |
+
+**偏度 (skewness)**
+- = 0：完全对称；> 0：右偏（右尾更长，少数贵房子把分布往右拉）；< 0：左偏。
+- 经验标准：|偏度| < 0.5 基本对称；> 1 明显偏斜，可以考虑取 log。
+- 本数据 0.27 → 基本对称。均值 861 与中位数 849 只差 12 澳元，也说明没有被少数豪宅拉高。
+
+**结论与对建模的影响**
+- 租金分布大致对称、接近正态，没有严重长尾 → **不需要对租金取 log**，直接在原始澳元尺度上建模。
+- 好处：作业按**原始尺度的 MSE** 打分；不取 log 就不用把预测值转换回去，也避免了转换带来的偏差。
+
+**可写在 notebook 这一节后面的结论（英文 Markdown）**
+```markdown
+The distribution of weekly rent is roughly symmetric and bell-shaped (mean 860.68, median 849.09, skewness 0.27),
+with no long tail. Therefore the response is modelled on its original scale, which also matches the scale
+on which the test MSE is calculated.
+```
 
 ### 2.6 租金 vs 连续变量（散点 + 直线 + 二次曲线）
 
