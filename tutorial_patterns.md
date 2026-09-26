@@ -78,7 +78,7 @@ Not used in any tutorial: `Pipeline`, `ColumnTransformer`, `StandardScaler` (onl
 | Standardisation | W7 c14–18 | manual: `mu=train[predictors].mean()`, `sigma=train[predictors].std()`, apply to train **and** test | see G |
 | Lasso | W7 c33–39 | `linear_model.Lasso(alpha=...)`, `LassoCV(cv=10)`, `lasso.alpha_`, `lasso.coef_`, `np.ravel(train[response])` | see H |
 | Refit OLS on Lasso-selected predictors | W7 c39 | list comprehension over `lasso.coef_ != 0`, then `sm.OLS` | see H |
-| Ridge | — | **no tutorial code** (named in W7 markdown only) | — |
+| Ridge | — | **no tutorial code** (named in W7 markdown only; Sherry believes Ridge code was provided — awaiting the file) | — |
 | Elastic net | — | **no tutorial code** (named in W7 markdown only) | — |
 | MSE | W3 c5; W5; W6 c31 | `mean_squared_error(y_true, y_pred)`; CV MSE = `-np.mean(scores)` | — |
 | Bias–variance (simulation) | W4 | `np.random.seed(0)`, `np.random.normal` | conceptual |
@@ -229,8 +229,18 @@ selected_predictors = [predictors[i] for i, coef in enumerate(lasso.coef_) if co
 | Ridge | named only | `linear_model.Ridge` / `RidgeCV(cv=10)` used exactly like `Lasso` / `LassoCV` in W7 |
 | Elastic net | named only | `ElasticNetCV(cv=10)` used like `LassoCV` |
 | `StandardScaler` | named only | not needed: use the W7 manual `mu` / `sigma` standardisation |
-| Scaling inside CV folds | not done in W7 | see question 2 in the checkpoint |
+| Scaling inside CV folds | not done in W7 (W7 standardises the whole training set once) | **Decided (2026-09-26): use a scikit-learn `Pipeline` so that standardisation is re-fitted inside each CV fold.** Marked `# NOTE: not from tutorial` in the notebook. |
 
 Methods in the current scaffold that do **not** appear in any tutorial and will be removed under CLAUDE.md §3.2:
 `DecisionTreeRegressor`, `RandomForestRegressor`, `HistGradientBoostingRegressor`, `SplineTransformer`,
-`Pipeline`, `ColumnTransformer`, `FunctionTransformer`, `DummyRegressor`, `StandardScaler`.
+`ColumnTransformer`, `FunctionTransformer`, `DummyRegressor`.
+(`Pipeline` + `StandardScaler` are kept only for standardisation inside CV folds, per the decision above.)
+
+## 5. EDA-specific deviations (Phase 1)
+
+| Item | Why | Tutorial basis |
+|---|---|---|
+| `plt.boxplot` for rent by group | box plots requested in CLAUDE.md Phase 1 | W1 compares groups with overlaid histograms |
+| `sns.heatmap` for correlations | heatmap requested in CLAUDE.md Phase 1 | W2/W5 print `.corr()`; seaborn used in W2 |
+| `os.makedirs('figures', exist_ok=True)` | figures must be saved to `figures/` and the folder must exist when the marker runs the notebook | W1 uses `plt.savefig` |
+| `itertools.combinations` in the interaction screen | loop over all predictor pairs | model fitting itself uses `sm.OLS` + AIC as in W7 |

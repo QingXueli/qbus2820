@@ -49,3 +49,21 @@ Tool: Claude Code (Anthropic), running in a Claude Code on the web session.
 - I uploaded Week 6–7 tutorial files; the AI saved them to `tutorials/week06/` and `tutorials/week07/` and completed
   `tutorial_patterns.md` (GridSearchCV, PolynomialFeatures + CV, AIC/BIC, backward elimination, manual standardisation,
   Lasso/LassoCV) with a Gaps table. Checkpoint 0 reached; waiting for my approval.
+
+## 2026-09-26 (Phase 1 — EDA)
+
+**What I asked**
+- Decisions at Checkpoint 0: use a `Pipeline` so standardisation happens inside each CV fold; asked how to choose interactions;
+  asked to do the EDA first (variable types, missing values, outliers, response distribution, correlations; histograms, scatter plots, heatmap).
+
+**What the AI produced**
+- Rebuilt `SID_Assignment1_implementation.ipynb` in tutorial style with Setup + EDA (Sections 1–2):
+  structure, missing/duplicates, summary statistics (4 d.p.), train vs test comparison, boundary values (DistanceCBD = 40,
+  FloorArea = 35), PropertyAge tail, response histogram, scatter plots with linear/quadratic fits, box plots, correlation
+  table and heatmap, interaction plots, one-term-at-a-time interaction screening (OLS + AIC), baseline OLS residual plots,
+  and a summary of findings. Figures saved to `figures/fig01`–`fig09`.
+- Removed the old modelling scaffold (non-tutorial methods) and the stale prediction CSV; updated `tutorial_patterns.md` and `README.md`.
+
+**Decisions I made myself**
+- Standardisation inside CV folds via `Pipeline`.
+- Do EDA first; modelling decisions deferred.
