@@ -244,3 +244,12 @@ Methods in the current scaffold that do **not** appear in any tutorial and will 
 | `plt.boxplot` for rent by group | box plots requested in CLAUDE.md Phase 1 | W1 compares groups with overlaid histograms |
 | `sns.heatmap` for correlations | heatmap requested in CLAUDE.md Phase 1 | W2/W5 print `.corr()`; seaborn used in W2 |
 | `plt.barh` for correlations with rent | bar chart requested to rank correlations with the response | W5 prints `train.corr().round(3)['Balance']` |
+
+## 6. Modelling-specific deviations (Phase 2)
+
+| Item | Why | Basis |
+|---|---|---|
+| `Pipeline` (`make_pipeline`) + `StandardScaler` | standardisation re-fitted inside each CV fold (decision at Checkpoint 0) | W7 standardises manually |
+| `RidgeCV`, `ElasticNetCV` | ridge and elastic net are in Lectures 6–7 but have no tutorial code | used like `LassoCV` in W7 |
+| `cv_mse_with_selection` (term selection inside each fold) | avoids optimistic CV MSE for data-driven term selection | W5 `knn_test` helper; `kf.split` loop |
+| automated backward selection loop with `getattr(est, 'aic' / 'bic')` | Lecture 4–5 backward stepwise selection | W7 does the same steps manually |

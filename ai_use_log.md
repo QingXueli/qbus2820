@@ -111,3 +111,11 @@ Tool: Claude Code (Anthropic), running in a Claude Code on the web session.
   check" (OLS summary + standardised-residual outlier check). Summary items 5 and 9 no longer refer to residual plots.
   The AI also corrected an earlier chat statement: sigma_hat of the baseline OLS is 57.4 AUD, not 43.
 - Asked how to structure 2.10; the AI added comments to the baseline OLS cell and a short interpretation of its summary before the outlier check.
+
+## 2026-09-26 (Phase 2 — modelling)
+**What I asked**: start the model selection part: a base model, then the models from the tutorials, then choose the best.
+**What the AI produced**: notebook Section 3 (3.1–3.9): 10-fold CV set-up and helpers, `make_features(df)` (32 columns),
+M0 null model, M1 OLS, M2 AIC-screened OLS, M3 backward selection (AIC and BIC), M4 ridge/lasso/elastic net in a
+Pipeline, M5 KNN with k chosen by CV, comparison table and bar chart; `results_log.md`. The AI checked that data-driven
+term selection was optimistic when done on all data and made M2/M3 selection nested inside the CV folds.
+**Decisions I made myself**: overall approach (base model, tutorial models, pick the best). Final model choice pending (Checkpoint 2).
