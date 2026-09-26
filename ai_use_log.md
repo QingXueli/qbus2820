@@ -39,3 +39,5 @@ Tool: Claude Code (Anthropic), running in a Claude Code on the web session.
 **Later on 2026-09-26**
 - I uploaded Week 1 tutorial solutions and data; the AI saved them to `tutorials/week01/` and wrote a partial
   `tutorial_patterns.md` (Week 1 style only). Weeks 2–7 and `QBUS2820_A1_context.md` still to be provided.
+- I uploaded Week 2 tutorial files; the AI saved them to `tutorials/week02/` and updated `tutorial_patterns.md`
+  (statsmodels OLS / formula API, dummies, correlation, pairplot). Weeks 3–7 still to be provided.
