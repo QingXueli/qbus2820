@@ -193,9 +193,15 @@ for i, var in enumerate(continuous):                      # 对 3 个连续变�
 - `.reshape(-1, 1)`：变成 100 行 1 列，符合 sklearn 输入格式（W6 `x.reshape(-1,1)`）。
 
 ```python
-    lin_reg = LinearRegression().fit(x, y)                # 直线：rent = b0 + b1·x
-    poly_transformer = PolynomialFeatures(2)              # 把 x 变成 [1, x, x²]
-    poly_reg = LinearRegression().fit(poly_transformer.fit_transform(x), y)   # 二次曲线：rent = b0 + b1·x + b2·x²
+    # 直线：rent = b0 + b1·x
+    lin_reg = LinearRegression()                          # 建一个普通最小二乘 (OLS) 模型
+    lin_reg.fit(x, y)                                     # 用 x 拟合租金
+
+    # 二次曲线：rent = b0 + b1·x + b2·x²（W6 的拆开写法）
+    poly_transformer = PolynomialFeatures(2)              # 准备把 x 变成 [1, x, x²]
+    poly_x = poly_transformer.fit_transform(x)            # 新的 3 列数据
+    poly_reg = LinearRegression()                         # 另一个 OLS 模型
+    poly_reg.fit(poly_x, y)                               # 用 [1, x, x²] 拟合租金 → 得到 b0、b1、b2
 ```
 
 ```python
@@ -307,7 +313,7 @@ ax[0].axhline(0, color = "red")            # 画 y = 0 参考线
 ```
 
 ```python
-poly_reg = LinearRegression().fit(poly_transformer.fit_transform(x), residuals)
+poly_x = poly_transformer.fit_transform(x); poly_reg = LinearRegression(); poly_reg.fit(poly_x, residuals)
 ```
 - 对「残差 vs 变量」再拟合一条二次曲线（橙线），让弯曲趋势一目了然：距离呈 U 形、面积呈倒 U 形。
 
