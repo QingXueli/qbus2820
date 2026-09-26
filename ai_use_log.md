@@ -72,3 +72,9 @@ Tool: Claude Code (Anthropic), running in a Claude Code on the web session.
 - Decision (mine): keep the tutorial setup lines (warnings, `%matplotlib inline`, `sns.set_context`, `sns.set_style`);
   do not save figures to files — plots are only shown in the notebook and I will take screenshots for the report.
   The AI removed `os.makedirs` and all `plt.savefig` calls, deleted `figures/`, and re-ran the notebook (no errors).
+- Asked what the summary statistics, missing-value checks and the train-vs-test histograms mean, and for tips on writing
+  English code comments; the AI explained in chat (no file changes).
+- Decision (mine): no extra `# NOTE` comments for `isna()`, `duplicated()`, `describe()` (not in tutorials, but basic checks
+  required by CLAUDE.md Phase 1).
+- Decision (mine): keep the train-vs-test comparison (table and histograms) in Section 2.4, although it is not in the
+  tutorials or the assignment spec, because it supports using CV error as a guide to test error.
