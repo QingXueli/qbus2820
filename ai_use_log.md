@@ -43,3 +43,6 @@ Tool: Claude Code (Anthropic), running in a Claude Code on the web session.
   (statsmodels OLS / formula API, dummies, correlation, pairplot). Weeks 3–7 still to be provided.
 - I uploaded Week 3 tutorial files; the AI saved them to `tutorials/week03/` and updated `tutorial_patterns.md`
   (train/test split with `df.sample`, KNN with a manual `for` loop over k, `mean_squared_error`). Weeks 4–7 still to be provided.
+- I uploaded Week 4–5 tutorial files; the AI saved them to `tutorials/week04/` and `tutorials/week05/` and rewrote
+  `tutorial_patterns.md` (KFold, `cross_val_score` with `neg_mean_squared_error`, CV loop for k, KNN with Mahalanobis
+  distance, `knn_test` helper). Weeks 6–7 still to be provided.
