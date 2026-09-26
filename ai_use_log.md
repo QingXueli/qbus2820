@@ -102,3 +102,4 @@ Tool: Claude Code (Anthropic), running in a Claude Code on the web session.
 - Asked the AI to do the interaction analysis (Section 2.9). The AI rewrote 2.9 following Lecture 2 ("domain knowledge,
   or trial and error") and Lectures 4–5 (AIC): commented group-slope plots, base OLS AIC, one-at-a-time AIC screening of
   all 21 pairwise interactions (plain nested loops instead of itertools) and of 4 squared terms, and a short summary.
+- Decision (mine): renamed the Section 2.9 figure title (was 'Separate Linear Fits by Group'); the AI also added a title to each panel.
