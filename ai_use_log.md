@@ -85,3 +85,5 @@ Tool: Claude Code (Anthropic), running in a Claude Code on the web session.
   residuals from the baseline OLS. The AI removed 2.5, renumbered later sections (2.5–2.11), added the outlier check
   (17 observations with |z| > 3 vs 13.5 expected; mainly distant or five-bedroom properties; all kept) and rewrote
   summary item 3.
+- Asked what Section 2.6 does and for English comment tips; decision (mine): show the three scatter plots in one row.
+  The AI changed Section 2.6 to a 1 x 3 `plt.subplots` layout (comments added) and re-ran the notebook (no errors).
