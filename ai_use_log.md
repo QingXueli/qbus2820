@@ -87,3 +87,4 @@ Tool: Claude Code (Anthropic), running in a Claude Code on the web session.
   summary item 3.
 - Asked what Section 2.6 does and for English comment tips; decision (mine): show the three scatter plots in one row.
   The AI changed Section 2.6 to a 1 x 3 `plt.subplots` layout (comments added) and re-ran the notebook (no errors).
+- Decision (mine): quadratic-fit line in Section 2.6 changed from orange to green for contrast.

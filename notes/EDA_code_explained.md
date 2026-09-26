@@ -201,7 +201,7 @@ for i, var in enumerate(continuous):                      # 对 3 个连续变�
 ```python
     plt.scatter(x, y, alpha = 0.1, s = 5)                 # 5000 个点很密：alpha 调透明、s 调小点
     plt.plot(x_points, lin_reg.predict(x_points), color = "red", label = "Linear fit")
-    plt.plot(x_points, poly_reg.predict(poly_transformer.transform(x_points)), color = "orange", label = "Quadratic fit")
+    plt.plot(x_points, poly_reg.predict(poly_transformer.transform(x_points)), color = "green", label = "Quadratic fit")
 ```
 - 注意第二行用 `transform`（不是 `fit_transform`）：用同一个转换器把画图用的点也变成 `[1, x, x²]`。
 
