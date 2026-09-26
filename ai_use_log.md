@@ -99,3 +99,6 @@ Tool: Claude Code (Anthropic), running in a Claude Code on the web session.
 - I uploaded the Week 1–7 lecture slides. The AI saved them to `lectures/`, wrote `lecture_summary.md`
   (topics per lecture, allowed methods, key points for modelling) and noted in `tutorial_patterns.md` that the
   gap methods (interactions, subset selection, ridge, elastic net) are covered in the lectures.
+- Asked the AI to do the interaction analysis (Section 2.9). The AI rewrote 2.9 following Lecture 2 ("domain knowledge,
+  or trial and error") and Lectures 4–5 (AIC): commented group-slope plots, base OLS AIC, one-at-a-time AIC screening of
+  all 21 pairwise interactions (plain nested loops instead of itertools) and of 4 squared terms, and a short summary.

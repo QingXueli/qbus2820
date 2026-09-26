@@ -243,5 +243,4 @@ Methods in the current scaffold that do **not** appear in any tutorial and will 
 |---|---|---|
 | `plt.boxplot` for rent by group | box plots requested in CLAUDE.md Phase 1 | W1 compares groups with overlaid histograms |
 | `sns.heatmap` for correlations | heatmap requested in CLAUDE.md Phase 1 | W2/W5 print `.corr()`; seaborn used in W2 |
-| `itertools.combinations` in the interaction screen | loop over all predictor pairs | model fitting itself uses `sm.OLS` + AIC as in W7 |
 | `plt.barh` for correlations with rent | bar chart requested to rank correlations with the response | W5 prints `train.corr().round(3)['Balance']` |
