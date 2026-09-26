@@ -220,9 +220,16 @@ group_vars = ['Bedrooms'] + binary                 # 列表相加：['Bedrooms',
 
 for i, var in enumerate(group_vars):
     levels = sorted(train[var].unique())           # 这个变量有哪些取值，如 [0, 1] 或 [1,2,3,4,5]
-    ax[i].boxplot([train.loc[train[var] == level, response] for level in levels])
+
+    groups = []                                    # 空列表
+    for level in levels:                           # 对每个组
+        rent_in_group = train.loc[train[var] == level, response]   # 取出这一组的租金
+        groups.append(rent_in_group)                               # 放进列表
+
+    ax[i].boxplot(groups)                          # 列表里有几组，就画几个箱子
 ```
-- 列表推导式为每个取值取出一组租金，`boxplot` 为每组画一个箱子。
+- 以 NearTrain 为例：`groups` = [2690 个不近车站的租金, 2310 个近车站的租金] → 两个箱子。
+- 「先建空列表、循环里 `append`」是 tutorial 调参时的同款写法（W3/W5 的 `losses.append(loss)`）。
 - 箱子中线 = 中位数；箱体 = 25%–75%；须线外的点 = 可能的异常值。
 
 ```python
