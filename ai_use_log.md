@@ -78,3 +78,6 @@ Tool: Claude Code (Anthropic), running in a Claude Code on the web session.
   required by CLAUDE.md Phase 1).
 - Decision (mine): keep the train-vs-test comparison (table and histograms) in Section 2.4, although it is not in the
   tutorials or the assignment spec, because it supports using CV error as a guide to test error.
+- Decision (mine): keep Section 2.5 in a shorter form — the two histograms were removed; the boundary-value counts and the
+  PropertyAge quantiles remain, followed by a short conclusion. The AI also removed an unsupported sentence from the
+  EDA summary (2.12) about residuals at the capped values, since that check was not in the notebook.

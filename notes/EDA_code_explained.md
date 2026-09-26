@@ -137,11 +137,6 @@ next_largest = train.loc[train['DistanceCBD'] < 40, 'DistanceCBD'].max()
 - FloorArea = 35 同理（106 行，下一个值 35.2）。
 
 ```python
-ax[0].hist(train['DistanceCBD'], bins=80)
-```
-- 用 80 个细柱子，40 处的「尖刺」就很明显。
-
-```python
 train['PropertyAge'].quantile([0.5, 0.9, 0.95, 0.99])   # 中位数和 90/95/99% 分位数
 (train['PropertyAge'] > 60).sum()                       # 房龄超过 60 年的有几套
 train['PropertyAge'].nlargest(10).tolist()              # 最大的 10 个值
