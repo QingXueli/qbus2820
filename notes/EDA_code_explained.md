@@ -83,7 +83,7 @@ train.describe().T.round(4)
 - `describe()`：每列的 count、mean、std、min、四分位数、max。
 - `.T`：转置 (transpose)，让每个变量占一行，更好读。
 - `.round(4)`：保留 4 位小数（作业要求）。
-- 从这里发现 `DistanceCBD` 最大值正好 40、`FloorArea` 最小值正好 35 → 2.5 节去查。
+- 从这里发现 `DistanceCBD` 最大值正好 40、`FloorArea` 最小值正好 35 → 可能是截断值，在 2.11 总结里说明。
 
 ### 2.4 训练集 vs 测试集
 
@@ -120,30 +120,7 @@ plt.tight_layout()                        # 自动调整间距，防止标签重
 plt.show()                                # 显示图
 ```
 
-### 2.5 截断值和房龄长尾
-
-**思路**：如果很多行都「刚好」等于最大值 40，而第二大的值是 39.65，说明 40 以上的都被记成了 40（截断，capping）。这会影响模型在边界的表现。
-
-```python
-n_dist_40 = (train['DistanceCBD'] == 40).sum()
-```
-- `== 40` 得到 True/False 序列；`.sum()` 时 True 算 1 → 数出等于 40 的行数（43）。
-
-```python
-next_largest = train.loc[train['DistanceCBD'] < 40, 'DistanceCBD'].max()
-```
-- `.loc[行条件, 列名]`：取出所有「小于 40」的行的 DistanceCBD，再取最大值（39.65）。
-
-- FloorArea = 35 同理（106 行，下一个值 35.2）。
-
-```python
-train['PropertyAge'].quantile([0.5, 0.9, 0.95, 0.99])   # 中位数和 90/95/99% 分位数
-(train['PropertyAge'] > 60).sum()                       # 房龄超过 60 年的有几套
-train['PropertyAge'].nlargest(10).tolist()              # 最大的 10 个值
-```
-- 用来判断长尾是否「离谱」。结论：最大 100 年，现实中合理，保留。
-
-### 2.6 响应变量分布
+### 2.5 响应变量分布
 
 ```python
 plt.hist(train[response], bins=50)     # 租金直方图
@@ -151,7 +128,7 @@ train[response].skew()                 # 偏度：0 = 对称；> 1 属于明显�
 ```
 - 偏度 0.27 → 接近对称 → 不需要对租金取对数。
 
-### 2.7 租金 vs 连续变量（散点 + 直线 + 二次曲线）
+### 2.6 租金 vs 连续变量（散点 + 直线 + 二次曲线）
 
 **思路**：散点图看关系形状。同时画一条直线和一条二次曲线：如果二次曲线明显弯离直线，说明关系是非线性的，模型要加平方项。拟合方法用 W6 的 `PolynomialFeatures` + `LinearRegression`。
 
@@ -180,7 +157,7 @@ for i, var in enumerate(continuous):                      # 对 3 个连续变�
 ```
 - 注意第二行用 `transform`（不是 `fit_transform`）：用同一个转换器把画图用的点也变成 `[1, x, x²]`。
 
-### 2.8 箱线图和分组均值 【箱线图为非 tutorial，CLAUDE.md 要求】
+### 2.7 箱线图和分组均值 【箱线图为非 tutorial，CLAUDE.md 要求】
 
 **思路**：比较不同组（例如高需求区 0/1）的租金分布和平均值。
 
@@ -204,7 +181,7 @@ train.groupby(var)[response].agg(['count', 'mean']).round(4)
 - `groupby`：按组分开；`.agg(['count','mean'])`：每组算个数和平均租金。
 - 得出：高需求区 +222、近车站 +137、带家具 +83 澳元。
 
-### 2.9 相关性
+### 2.8 相关性
 
 **思路**：相关系数衡量两个变量的**线性**关系强弱（−1 到 1）。两个用途：(1) 看哪些变量和租金关系强；(2) 看预测变量之间是否高度相关（多重共线性）。
 
@@ -220,7 +197,7 @@ sns.heatmap(correlations, annot = True, fmt = ".2f", cmap = "RdBu_r", vmin = -1,
 - `cmap="RdBu_r"`：红 = 正相关，蓝 = 负相关；`vmin/vmax` 固定色阶在 −1 到 1。
 - 发现：Bedrooms 与 FloorArea 相关 0.88 → 多重共线性。
 
-### 2.10 交互项探索
+### 2.9 交互项探索
 
 **思路（第一步：画图）**：对每组分别拟合一条直线；若两条线斜率差很多，说明「这个变量的影响在两组不一样」= 交互效应。
 
@@ -263,7 +240,7 @@ screening = pd.DataFrame(screening).sort_values('AIC drop', ascending = False).s
 ```
 - 把结果做成表（W6 c27 用 list of dicts → DataFrame → `set_index("Model")` 的同一写法），按 AIC 降幅从大到小排。
 
-### 2.11 基线 OLS 残差
+### 2.10 基线 OLS 残差
 
 **思路**：残差 = 真实值 − 模型预测值。如果模型抓住了所有规律，残差应该是围绕 0 的随机云；若残差随某变量呈弯曲形状，说明模型漏掉了该变量的非线性。
 
@@ -286,6 +263,28 @@ poly_reg = LinearRegression().fit(poly_transformer.fit_transform(x), residuals)
 ```
 - 对「残差 vs 变量」再拟合一条二次曲线（橙线），让弯曲趋势一目了然：距离呈 U 形、面积呈倒 U 形。
 
-### 2.12 结论总结
+**异常值检查（标准化残差）**
+
+**思路**：回归里的异常值 = 模型预测得特别离谱的点。「多离谱才算离谱」要有一把尺子：把残差除以误差的标准差，
+得到标准化残差（多少个标准差）。如果误差近似正态，99.73% 的点应落在 ±3 之内，超出 ±3 的就算异常。
+
+```python
+from scipy import stats                        # 【W7 c24 导入过】正态分布的概率
+sigma_hat = np.sqrt(est.mse_resid)             # 误差标准差的估计 = √(残差均方)；W6 的 sigma2_hat 同一概念
+std_resid = residuals / sigma_hat              # 标准化残差：这套房子的误差是几个标准差
+outliers = np.abs(std_resid) > 3               # 绝对值超过 3 → True
+expected = len(train) * 2 * (1 - stats.norm.cdf(3))   # 纯属偶然、预计会有几个：5000 × P(|Z|>3) ≈ 13.5
+```
+- `stats.norm.cdf(3)`：标准正态小于 3 的概率（0.99865）；`1 - ...` 是大于 3 的概率；`× 2` 加上小于 −3 的一侧。
+
+```python
+outlier_rows = train[outliers].copy()                  # 取出被标记的行
+outlier_rows['std_resid'] = std_resid[outliers]        # 加一列：它们的标准化残差
+outlier_rows.sort_values('std_resid').round(4)         # 按残差从负到正排序
+```
+- 结果：17 个（预期 13.5，差不多），最大 4.24 → 没有极端异常值。
+- 规律：正残差（低估）多是离 CBD 30–40 km 的远郊；负残差（高估）多是 5 间卧室的大房子 → 是线性模型没拟合好弯曲，不是数据错误 → 全部保留。
+
+### 2.11 结论总结
 
 - 纯 markdown，没有代码：把以上发现整理成 9 条，并说明它们对建模的意义。

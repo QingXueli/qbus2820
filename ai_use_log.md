@@ -81,3 +81,7 @@ Tool: Claude Code (Anthropic), running in a Claude Code on the web session.
 - Decision (mine): keep Section 2.5 in a shorter form — the two histograms were removed; the boundary-value counts and the
   PropertyAge quantiles remain, followed by a short conclusion. The AI also removed an unsupported sentence from the
   EDA summary (2.12) about residuals at the capped values, since that check was not in the notebook.
+- Decision (mine): delete Section 2.5 (boundary values / PropertyAge tail) and instead check outliers with standardised
+  residuals from the baseline OLS. The AI removed 2.5, renumbered later sections (2.5–2.11), added the outlier check
+  (17 observations with |z| > 3 vs 13.5 expected; mainly distant or five-bedroom properties; all kept) and rewrote
+  summary item 3.
