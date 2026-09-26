@@ -278,28 +278,18 @@ for i, (var, group) in enumerate(pairs):
 
 **第二步（AIC 筛查）已移到建模部分**：它需要拟合、比较模型，属于建模步骤。代码暂存在 `notes/phase2_candidate_screening.md`。
 
-### 2.10 基线 OLS 残差
+### 2.10 基线 OLS 和异常值检查
 
-**思路**：残差 = 真实值 − 模型预测值。如果模型抓住了所有规律，残差应该是围绕 0 的随机云；若残差随某变量呈弯曲形状，说明模型漏掉了该变量的非线性。
+**思路**：用 7 个线性项拟合一个基准 OLS（W7 写法），看整体效果（R² = 0.929，系数、p 值），并用它的残差检查异常值。
+残差 = 实际租金 − 预测租金，每套房子一个值（`est.resid`），不在 summary 表里。残差图已按决定删除。
 
 ```python
-x_with_intercept = sm.add_constant(train[predictors], prepend=True)   # 【W7 c24】
-ols = sm.OLS(train[response], x_with_intercept)
+x_with_intercept = sm.add_constant(train[predictors], prepend=True)   # 加截距列
+ols = sm.OLS(train[response], x_with_intercept)                       # 租金 ~ 7 个变量
 est = ols.fit()
-print(est.summary())         # 系数、p 值、R²、AIC、BIC
+print(est.summary())                                                  # 系数、p 值、R²、AIC、BIC
+residuals = est.resid                                                 # 每套房子的残差
 ```
-
-```python
-residuals = est.resid             # 每套房的残差
-fitted = est.fittedvalues         # 每套房的预测值
-ax[0].scatter(fitted, residuals, ...)      # 残差 vs 预测值：检查整体模式
-ax[0].axhline(0, color = "red")            # 画 y = 0 参考线
-```
-
-```python
-poly_x = poly_transformer.fit_transform(x); poly_reg = LinearRegression(); poly_reg.fit(poly_x, residuals)
-```
-- 对「残差 vs 变量」再拟合一条二次曲线（橙线），让弯曲趋势一目了然：距离呈 U 形、面积呈倒 U 形。
 
 **异常值检查（标准化残差）**
 

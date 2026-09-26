@@ -106,3 +106,7 @@ Tool: Claude Code (Anthropic), running in a Claude Code on the web session.
 - Decision (mine): AIC screening of candidate terms is a modelling step, so it was moved out of the EDA (option A).
   Section 2.9 now contains only the group-slope plots and their interpretation; summary item 8 was rewritten from the
   plots. The screening code and its results are kept in `notes/phase2_candidate_screening.md` for the modelling section.
+- Decision (mine): remove the residual plots from Section 2.10 (not in tutorials or lectures; curvature already shown in 2.6),
+  overriding the CLAUDE.md Phase 1 item "residual plots from a baseline OLS". 2.10 is now "Baseline OLS model and outlier
+  check" (OLS summary + standardised-residual outlier check). Summary items 5 and 9 no longer refer to residual plots.
+  The AI also corrected an earlier chat statement: sigma_hat of the baseline OLS is 57.4 AUD, not 43.
