@@ -22,11 +22,8 @@ warnings.filterwarnings('ignore')   # 不显示警告（本 notebook 实测不�
 %matplotlib inline                  # 让图显示在 notebook 里（新版 Jupyter 默认如此） 【W5、W7】
 sns.set_context('notebook')         # 图中字体大小适合 notebook 阅读           【W5、W7】
 sns.set_style('ticks')              # 白底、坐标轴带刻度的图风格               【W7】
-
-import os                                   # Python 自带的操作系统工具       【非 tutorial】
-os.makedirs('figures', exist_ok=True)       # 建 figures 文件夹；已存在也不报错
 ```
-- `os.makedirs` 必须在 `plt.savefig("figures/...")` 之前执行，否则助教的电脑上没有 `figures/` 文件夹时会报 `FileNotFoundError`，notebook 就跑不通（会丢实现分）。
+- 图只用 `plt.show()` 显示在 notebook 里，不另存为图片文件（写报告时直接截图），所以不需要 `os` 和 `plt.savefig`。
 
 ### Cell：读数据、定义变量名
 
@@ -120,8 +117,7 @@ for i, var in enumerate(predictors):             # enumerate 同时给出序号 
 ax[7].axis('off')                         # 只有 7 个变量，第 8 个格子关掉
 fig.suptitle("...")                       # 整张大图的总标题
 plt.tight_layout()                        # 自动调整间距，防止标签重叠
-plt.savefig("figures/fig01_train_vs_test.png")   # 存图（W1 用 plt.savefig）
-plt.show()
+plt.show()                                # 显示图
 ```
 
 ### 2.5 截断值和房龄长尾
@@ -143,7 +139,7 @@ next_largest = train.loc[train['DistanceCBD'] < 40, 'DistanceCBD'].max()
 ```python
 ax[0].hist(train['DistanceCBD'], bins=80)
 ```
-- 用 80 个细柱子，40 处的「尖刺」就很明显（fig02）。
+- 用 80 个细柱子，40 处的「尖刺」就很明显。
 
 ```python
 train['PropertyAge'].quantile([0.5, 0.9, 0.95, 0.99])   # 中位数和 90/95/99% 分位数
@@ -188,10 +184,6 @@ for i, var in enumerate(continuous):                      # 对 3 个连续变�
     plt.plot(x_points, poly_reg.predict(poly_transformer.transform(x_points)), color = "orange", label = "Quadratic fit")
 ```
 - 注意第二行用 `transform`（不是 `fit_transform`）：用同一个转换器把画图用的点也变成 `[1, x, x²]`。
-
-```python
-    plt.savefig("figures/fig05_rent_vs_{}.png".format(var))   # 文件名里填入变量名，3 张图分别保存
-```
 
 ### 2.8 箱线图和分组均值 【箱线图为非 tutorial，CLAUDE.md 要求】
 

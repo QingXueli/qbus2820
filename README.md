@@ -6,7 +6,6 @@
 | `WeeklyRent_training.csv` | Training data (5000 rows, includes `WeeklyRent`) |
 | `WeeklyRent_test_noLabel.csv` | Test covariates (1000 rows) |
 | `SID_Assignment1_implementation.ipynb` | Analysis notebook (currently: setup + EDA) |
-| `figures/` | Saved EDA figures |
 | `CLAUDE.md`, `tutorial_patterns.md`, `ai_use_log.md` | Working rules, tutorial style guide, AI-use record |
 | `tutorials/` | Week 1–7 tutorial notebooks and data |
 
@@ -17,7 +16,7 @@
 
 ## 当前进度
 - Phase 0（tutorial 风格整理）：完成，见 `tutorial_patterns.md`
-- Phase 1（EDA）：notebook 第 2 节，图保存在 `figures/`
+- Phase 1（EDA）：notebook 第 2 节（图只显示在 notebook 中，不另存文件；写报告时截图）
 - Phase 2–4（建模、最终模型、报告材料）：待进行。预测 CSV 和 marker-only 最后一个 cell 会在 Phase 3 重新生成
 
 ## 还需要你完成的 TODO

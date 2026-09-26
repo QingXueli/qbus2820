@@ -69,3 +69,6 @@ Tool: Claude Code (Anthropic), running in a Claude Code on the web session.
 - Do EDA first; modelling decisions deferred.
 - Asked for a line-by-line explanation of the EDA code and whether the setup lines are needed / from the tutorials.
   The AI wrote `notes/EDA_code_explained.md` and tested that removing the warnings/seaborn-style lines produces no warnings or errors.
+- Decision (mine): keep the tutorial setup lines (warnings, `%matplotlib inline`, `sns.set_context`, `sns.set_style`);
+  do not save figures to files — plots are only shown in the notebook and I will take screenshots for the report.
+  The AI removed `os.makedirs` and all `plt.savefig` calls, deleted `figures/`, and re-ran the notebook (no errors).

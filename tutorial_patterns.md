@@ -242,5 +242,4 @@ Methods in the current scaffold that do **not** appear in any tutorial and will 
 |---|---|---|
 | `plt.boxplot` for rent by group | box plots requested in CLAUDE.md Phase 1 | W1 compares groups with overlaid histograms |
 | `sns.heatmap` for correlations | heatmap requested in CLAUDE.md Phase 1 | W2/W5 print `.corr()`; seaborn used in W2 |
-| `os.makedirs('figures', exist_ok=True)` | figures must be saved to `figures/` and the folder must exist when the marker runs the notebook | W1 uses `plt.savefig` |
 | `itertools.combinations` in the interaction screen | loop over all predictor pairs | model fitting itself uses `sm.OLS` + AIC as in W7 |
