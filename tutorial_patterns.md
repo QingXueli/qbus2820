@@ -228,7 +228,7 @@ selected_predictors = [predictors[i] for i, coef in enumerate(lasso.coef_) if co
 | Interactions | not shown | add product columns by hand in `make_features(df)` (e.g. `df['Dist_x_HighDemand'] = df['DistanceCBD'] * df['HighDemandArea']`), in the same way W7 uses ready-made `_SQ` columns; or `PolynomialFeatures(2)` on several columns (W6 uses it on one) |
 | Best subset / forward stepwise | not shown (only manual backward elimination) | manual backward elimination as in W7 (p-value + AIC/BIC), optionally a short loop that automates the same steps |
 | Ridge | named only | `linear_model.Ridge` / `RidgeCV(cv=10)` used exactly like `Lasso` / `LassoCV` in W7 |
-| Elastic net | named only | `ElasticNetCV(cv=10)` used like `LassoCV` |
+| Elastic net | named only | **not used** (decision 2026-09-27: not covered in the tutorials; did not beat the lasso) |
 | `StandardScaler` | named only | not needed: use the W7 manual `mu` / `sigma` standardisation |
 | Scaling inside CV folds | not done in W7 (W7 standardises the whole training set once) | **Decided (2026-09-26): use a scikit-learn `Pipeline` so that standardisation is re-fitted inside each CV fold.** Marked `# NOTE: not from tutorial` in the notebook. |
 
