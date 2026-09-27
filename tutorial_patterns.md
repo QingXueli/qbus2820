@@ -250,6 +250,6 @@ Methods in the current scaffold that do **not** appear in any tutorial and will 
 | Item | Why | Basis |
 |---|---|---|
 | `Pipeline` (`make_pipeline`) + `StandardScaler` | standardisation re-fitted inside each CV fold (decision at Checkpoint 0) | W7 standardises manually |
-| `Ridge`, `ElasticNet` with a manual CV loop over λ | in Lectures 6–7 but no tutorial code; manual loop avoids the inner CV of `LassoCV`/`RidgeCV` (no leakage) | W5 manual loop over k; W7 `Lasso(alpha=...)` |
+| `Ridge` with a manual CV loop over λ (also used for `Lasso`) | ridge is in Lectures 6–7 but has no tutorial code; the manual loop avoids the inner CV of `LassoCV`/`RidgeCV` (no leakage) | W5 manual loop over k; W7 `Lasso(alpha=...)` |
 | forward/backward stepwise loops (RSS within a step, AIC/BIC along the path) | Lecture 4–5 FSS/BSS algorithms | W7 does backward elimination manually |
 | `itertools.combinations` for best subset | lists all subsets of each size (Lecture 4–5 best subset) | – |

@@ -2,8 +2,8 @@
 
 Workflow (Tutorials 5–6, Lectures 4–5): each model is built and **immediately evaluated with the
 same 10-fold CV** (`KFold(10, shuffle=True, random_state=1)`); all CV MSEs are compared in one table. CV MSE = mean of the 10 fold MSEs;
-SE = standard deviation of the fold MSEs / sqrt(10). Standardisation (ridge, lasso, elastic net, KNN) is inside a
-`Pipeline`, so it is re-fitted on the training part of every fold; hyperparameters (λ, l1_ratio, k) are chosen by a manual
+SE = standard deviation of the fold MSEs / sqrt(10). Standardisation (ridge, lasso, KNN) is inside a
+`Pipeline`, so it is re-fitted on the training part of every fold; hyperparameters (λ, k) are chosen by a manual
 CV loop over a grid on the same folds (no inner CV, no leakage). Stepwise selection is done on all training data before CV
 (as in the lectures); a nested check earlier showed the effect is small (BIC models unchanged, AIC +4).
 
@@ -19,6 +19,5 @@ Columns from `make_features(df)`: 7 predictors + 4 squared (`_SQ`) + 21 interact
 | M4 | Backward stepwise (AIC) | same 7 extra terms as forward (AIC) | – | 2005.8861 | 26.4687 | |
 | **M4** | **Backward stepwise (BIC)** | same 6 extra terms as forward (BIC) | – | **2005.6203** | 27.4624 | lowest CV MSE |
 | M5 | Lasso (standardised) | 32 columns | α = 0.0788 | 2012.2895 | 25.5644 | |
-| M5 | Elastic net (standardised) | 32 columns | α = 0.0010, l1_ratio = 0.8 | 2017.8816 | 26.9696 | α at the lower end of the grid → almost no penalty, ≈ full OLS |
 | M5 | Ridge (standardised) | 32 columns | α = 0.3857 | 2017.8831 | 27.2966 | |
 | M6 | KNN (standardised, Euclidean) | 7 predictors | k = 7 | 3438.6270 | 69.4793 | worse than linear OLS |

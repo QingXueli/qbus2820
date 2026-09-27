@@ -138,3 +138,4 @@ chart; updated `results_log.md` and `tutorial_patterns.md`.
   that style. The AI rewrote Section 3 as 3.1 CV set-up, 3.2 M0/M1, 3.3 best subset, 3.4 expanded features,
   3.5 forward, 3.6 backward, 3.7 ridge/lasso/elastic net, 3.8 KNN (each evaluated by CV immediately), 3.9 comparison.
   Results unchanged.
+- Decision (mine): remove the elastic net (not covered in my tutorials; it did not beat the lasso). Section 3.7 now has ridge and lasso only.
