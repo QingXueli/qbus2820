@@ -96,7 +96,10 @@ the assignment requires). Sherry writes the report prose herself.
   `Bedrooms_x_HighDemandArea` (Bedrooms–FloorArea r = 0.88).
 - KNN worse than linear OLS: the relationship is mostly linear with smooth curvature; parametric models suit it
   (Lecture 3 comparison of KNN vs linear regression).
-- Regularisation gives little gain: n = 5000 is large relative to 32 columns.
+- Regularisation gives little gain: n = 5000 is large relative to 32 columns. Bias–variance check (ridge, scratch, not in
+  the notebook): training MSE vs CV MSE = 1991.22 vs 2018.04 at λ = 0.001 (gap 26.81), 1991.38 vs 2017.88 at λ = 0.5736,
+  2401.54 vs 2472.43 at λ = 100, 3800.09 vs 3907.53 at λ = 1000. The small gap at small λ means OLS has little variance to
+  remove; larger λ mainly adds bias (Lectures 6–7: U-shaped test MSE, minimum here at the left end).
 
 ### Recommended final model
 - OLS with 7 main effects + `DistanceCBD_SQ`, `FloorArea_SQ`, `PropertyAge_SQ`, `Bedrooms_x_HighDemandArea`,

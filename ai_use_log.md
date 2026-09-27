@@ -167,3 +167,4 @@ chart; updated `results_log.md` and `tutorial_patterns.md`.
 - M6: zero-coefficient output turned into two tables at my request (summary of zero/non-zero counts; 32-row ridge vs lasso coefficient table with a 'Dropped by lasso' column).
 - M6 coefficient output shortened at my request: summary table + only the 12 terms the lasso drops (ridge vs lasso coefficient).
 - M6: fuller English line comments added to all five cells at my request (results unchanged).
+- Decision (mine): no bias–variance plot for ridge; the training vs CV MSE numbers are kept in report_notes.md for the report.
