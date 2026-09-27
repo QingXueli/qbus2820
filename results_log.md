@@ -1,7 +1,7 @@
 # Results Log — Phase 2 (model comparison)
 
-Workflow (Lectures 4–5): **(1) build candidate models on the training data**, then **(2) validate all of them with the
-same 10-fold CV** (`KFold(10, shuffle=True, random_state=1)`). CV MSE = mean of the 10 fold MSEs;
+Workflow (Tutorials 5–6, Lectures 4–5): each model is built and **immediately evaluated with the
+same 10-fold CV** (`KFold(10, shuffle=True, random_state=1)`); all CV MSEs are compared in one table. CV MSE = mean of the 10 fold MSEs;
 SE = standard deviation of the fold MSEs / sqrt(10). Standardisation (ridge, lasso, elastic net, KNN) is inside a
 `Pipeline`, so it is re-fitted on the training part of every fold; hyperparameters (λ, l1_ratio, k) are chosen by a manual
 CV loop over a grid on the same folds (no inner CV, no leakage). Stepwise selection is done on all training data before CV

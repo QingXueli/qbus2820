@@ -133,3 +133,8 @@ chart; updated `results_log.md` and `tutorial_patterns.md`.
   models. The AI reordered Section 3: 3.1 baseline models (M0 mean, M1 OLS with training MSE, R², AIC, BIC),
   3.2 best subset, 3.3 expanded features (`make_features` introduced here) and stepwise/regularised/KNN models,
   3.4 validation (`KFold` defined here), 3.5 comparison. Results unchanged.
+- Asked how the tutorials organise model building and CV (answer: CV is computed right after each model is built or
+  while tuning it; models are compared with the same KFold in one table, W6). Decision (mine): restructure Section 3 in
+  that style. The AI rewrote Section 3 as 3.1 CV set-up, 3.2 M0/M1, 3.3 best subset, 3.4 expanded features,
+  3.5 forward, 3.6 backward, 3.7 ridge/lasso/elastic net, 3.8 KNN (each evaluated by CV immediately), 3.9 comparison.
+  Results unchanged.
