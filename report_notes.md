@@ -86,9 +86,8 @@ the assignment requires). Sherry writes the report prose herself.
 | M3 EDA-driven OLS | test the EDA hypotheses | 2075.4951 (27.7922); Bedrooms_SQ p = 0.6078 and FloorArea_x_HighDemandArea p = 0.4913 not significant (collinearity) |
 | M4/M5 forward/backward (AIC) | systematic search over 25 extra terms (Lecture 4–5; Tutorial 7) | 2005.8861 (26.4687), 7 extra terms |
 | **M4/M5 forward/backward (BIC)** | BIC penalises complexity more | **2005.6203 (27.4624)**, 6 extra terms |
-| M6 lasso | shrink all 32 (Lecture 6–7); 12 of 32 coefficients set to 0 | 2012.6979 (25.3487), α = 0.1000 |
-| M6 ridge | shrink all 32; handles collinearity; no coefficient set to 0 | 2017.8785 (27.2487), α = 0.4642 |
-| M6 elastic net | compromise ridge/lasso | 2022.4385 (25.0940), α = 0.0100 (grid minimum), l1_ratio = 0.9 |
+| M6 ridge / lasso | shrink all 32 (Lecture 6–7); λ chosen by AIC(λ)/BIC(λ) with effective df (ridge: eigenvalue formula; lasso: non-zero count), 30-value grid 0.001–100 | lasso AIC 2012.4817 (25.8717), α = 0.0530, df 23; lasso BIC 2013.3032 (25.1854), α = 0.1172, df 20 (12 of 32 coefficients zero); ridge AIC 2017.8835 (27.1835), α = 0.5736; ridge BIC 2018.6737 (26.4942), α = 1.8874 (no zero coefficients) |
+| M6 elastic net | no df formula in the lectures → λ by CV on a small grid (0.01–10, 10 values), l1_ratio = 0.9 | 2022.4385 (25.0940), α = 0.0100 (grid minimum) |
 | M7 KNN | non-parametric alternative (Lecture 3) | 3438.6270 (69.4793), k = 7 |
 
 - Best subset only feasible for the 7 predictors (2^32 subsets for 32 columns) → stepwise for the expanded set.
