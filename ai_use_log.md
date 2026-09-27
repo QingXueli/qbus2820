@@ -166,3 +166,4 @@ chart; updated `results_log.md` and `tutorial_patterns.md`.
 - Decision (mine): M6 ridge and lasso now choose λ by AIC(λ)/BIC(λ) with effective degrees of freedom (Lectures 6–7; Tutorial 7 homework) over 30 values 0.001–100, fitted once per λ on data standardised with training mean/std (Tutorial 7); the chosen models are then compared by the same 10-fold CV (pipeline). Elastic net keeps a small CV grid (no df formula in the lectures). No relaxed lasso. M6 runs in about 11 s. Recommendation unchanged.
 - M6: zero-coefficient output turned into two tables at my request (summary of zero/non-zero counts; 32-row ridge vs lasso coefficient table with a 'Dropped by lasso' column).
 - M6 coefficient output shortened at my request: summary table + only the 12 terms the lasso drops (ridge vs lasso coefficient).
+- M6: fuller English line comments added to all five cells at my request (results unchanged).
