@@ -129,3 +129,7 @@ M2, forward stepwise M3, backward stepwise M4, ridge/lasso/elastic net M5 and KN
 3.3 validation (same 10 folds; best-subset size, λ, l1_ratio and k chosen by manual CV loops), 3.4 comparison table and
 chart; updated `results_log.md` and `tutorial_patterns.md`.
 **Decisions I made myself**: two-stage structure; AIC and BIC versions of both stepwise methods; scaling inside folds only.
+- Asked what 3.1 Set-up does and why the baseline models had no code. Decision (mine): start Section 3 with the baseline
+  models. The AI reordered Section 3: 3.1 baseline models (M0 mean, M1 OLS with training MSE, R², AIC, BIC),
+  3.2 best subset, 3.3 expanded features (`make_features` introduced here) and stepwise/regularised/KNN models,
+  3.4 validation (`KFold` defined here), 3.5 comparison. Results unchanged.
