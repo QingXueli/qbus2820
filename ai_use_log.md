@@ -168,3 +168,4 @@ chart; updated `results_log.md` and `tutorial_patterns.md`.
 - M6 coefficient output shortened at my request: summary table + only the 12 terms the lasso drops (ridge vs lasso coefficient).
 - M6: fuller English line comments added to all five cells at my request (results unchanged).
 - Decision (mine): no bias–variance plot for ridge; the training vs CV MSE numbers are kept in report_notes.md for the report.
+- Model comparison plot redesigned at my request: dot-and-whisker (CV MSE ± 1 SE) instead of bars cut at 1900, coloured by model family, value labels, shaded one-standard-error band; result note corrected (M3 is outside the 1-SE band).

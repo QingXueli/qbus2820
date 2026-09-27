@@ -116,7 +116,7 @@ the assignment requires). Sherry writes the report prose herself.
 | Box plots (1×4) | 2.7 | Weekly rent by number of bedrooms and binary predictors |
 | Correlation heatmap / bar chart | 2.8 | Correlations between variables / with weekly rent |
 | Interaction plots (1×4) | 2.9 | Separate linear fits by group: non-parallel lines suggest interactions |
-| Model comparison table + bar chart | 3.10 | 10-fold CV MSE of all candidate models (error bars = 1 SE) |
+| Model comparison table + dot plot | 3.10 | 10-fold CV MSE of the best models (dots) with ±1 SE (lines); the shaded band marks models within one standard error of the best |
 
 ---
 
