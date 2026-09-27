@@ -150,3 +150,4 @@ chart; updated `results_log.md` and `tutorial_patterns.md`.
   ("recommended", final choice pending), and created `report_notes.md` with the removed details, key numbers,
   reasoning chain, suggested figures/captions and limitations.
 - Sherry found the one-line M1 cell (`cv_mse(...)`) hard to follow. At her request, M1 was rewritten step by step in Tutorial 6 style (create `LinearRegression` object → fit and print coefficients → `cross_val_score` on `kf` → fold MSEs → mean and SE). `cv_mse` was moved to just after M1 and is now introduced as a wrapper around those same steps. CV results are unchanged (M1 3302.3821, SE 29.6067).
+- Decision (mine): I noticed the expanded M1 CV cell duplicated `cv_mse`. `cv_mse` was moved back into 3.1 (with line comments), and M1 now calls it; the M1 fit/coefficient cell keeps its step-by-step form with English comments. Results unchanged.
