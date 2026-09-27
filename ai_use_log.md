@@ -149,3 +149,4 @@ chart; updated `results_log.md` and `tutorial_patterns.md`.
   The AI shortened all markdown cells (≈2300 → ≈980 words), added a short result after the model comparison
   ("recommended", final choice pending), and created `report_notes.md` with the removed details, key numbers,
   reasoning chain, suggested figures/captions and limitations.
+- Sherry found the one-line M1 cell (`cv_mse(...)`) hard to follow. At her request, M1 was rewritten step by step in Tutorial 6 style (create `LinearRegression` object → fit and print coefficients → `cross_val_score` on `kf` → fold MSEs → mean and SE). `cv_mse` was moved to just after M1 and is now introduced as a wrapper around those same steps. CV results are unchanged (M1 3302.3821, SE 29.6067).
