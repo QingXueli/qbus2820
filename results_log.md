@@ -19,9 +19,9 @@ Columns from `make_features(df)`: 7 predictors + 4 squared (`_SQ`) + 21 interact
 | **M4** | **Forward stepwise (BIC)** | **7 + 6: the above without Furnished_x_HighDemandArea** | – | **2005.6203** | 27.4624 | same terms as backward (BIC); lowest CV MSE |
 | M5 | Backward stepwise (AIC) | same 7 extra terms as forward (AIC) | – | 2005.8861 | 26.4687 | |
 | **M5** | **Backward stepwise (BIC)** | same 6 extra terms as forward (BIC) | – | **2005.6203** | 27.4624 | lowest CV MSE |
-| M6 | Lasso (standardised) | 32 columns | α = 0.0695 | 2012.2483 | 25.6680 | 9 of 32 coefficients set to 0 |
-| M6 | Elastic net (standardised) | 32 columns | α = 0.0010, l1_ratio = 0.5 | 2019.0313 | 26.3070 | α at the lower end of the grid → almost no penalty, ≈ OLS on 32 columns |
-| M6 | Ridge (standardised) | 32 columns | α = 0.4281 | 2017.8797 | 27.2706 | no coefficient set to 0 |
+| M6 | Lasso (standardised) | 32 columns | α = 0.1000 | 2012.6979 | 25.3487 | 12 of 32 coefficients set to 0 |
+| M6 | Elastic net (standardised) | 32 columns | α = 0.0100, l1_ratio = 0.9 | 2022.4385 | 25.0940 | α at the lower end of the grid → almost no penalty, ≈ OLS on 32 columns |
+| M6 | Ridge (standardised) | 32 columns | α = 0.4642 | 2017.8785 | 27.2487 | no coefficient set to 0 |
 | M7 | KNN (standardised, Euclidean) | 7 predictors | k = 7 | 3438.6270 | 69.4793 | worse than linear OLS |
 
-Note: M6 grid reduced to `np.logspace(-3, 2, 20)` with elastic net `l1_ratio = 0.5` so the notebook runs faster.
+Note: M6 grid reduced to `np.logspace(-2, 1, 10)` with elastic net `l1_ratio = 0.9` so the notebook runs quickly on a laptop (about 13 s on the server).
