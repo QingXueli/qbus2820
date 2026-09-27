@@ -145,3 +145,7 @@ chart; updated `results_log.md` and `tutorial_patterns.md`.
   (M4 forward, M5 backward, M6 ridge/lasso/elastic net, M7 KNN; Section 3.10 comparison).
 - Decision (mine): keep M3 (EDA-driven OLS) — it tests the EDA hypotheses and links the EDA to the modelling.
 - Asked to understand every line of Section 3; the AI wrote notes/Section3_code_explained.md (line-by-line, with English comment versions).
+- Decision (mine): notebook markdown should be short (what/why in 1–3 sentences); details go to the report.
+  The AI shortened all markdown cells (≈2300 → ≈980 words), added a short result after the model comparison
+  ("recommended", final choice pending), and created `report_notes.md` with the removed details, key numbers,
+  reasoning chain, suggested figures/captions and limitations.
