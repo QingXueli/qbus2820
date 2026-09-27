@@ -153,3 +153,4 @@ chart; updated `results_log.md` and `tutorial_patterns.md`.
 - Decision (mine): I noticed the expanded M1 CV cell duplicated `cv_mse`. `cv_mse` was moved back into 3.1 (with line comments), and M1 now calls it; the M1 fit/coefficient cell keeps its step-by-step form with English comments. Results unchanged.
 - M2 (best subset): at my request the cell now prints the M2 CV MSE and SE right after the model; added line comments (inner loop = keep the smallest RSS of each size), corrected the markdown to 127 non-empty subsets (128 incl. M0), and extended the result note (best 1-predictor model not nested in best 2-predictor model).
 - Decision (mine): after reviewing what M3 does (EDA-driven terms; bridge between EDA and stepwise selection), I decided to keep M3.
+- M4 (forward stepwise): added the missing `# NOTE: not from tutorial` line and line comments; results unchanged.
