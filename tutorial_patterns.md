@@ -228,7 +228,7 @@ selected_predictors = [predictors[i] for i, coef in enumerate(lasso.coef_) if co
 | Interactions | not shown | add product columns by hand in `make_features(df)` (e.g. `df['Dist_x_HighDemand'] = df['DistanceCBD'] * df['HighDemandArea']`), in the same way W7 uses ready-made `_SQ` columns; or `PolynomialFeatures(2)` on several columns (W6 uses it on one) |
 | Best subset / forward stepwise | not shown (only manual backward elimination) | manual backward elimination as in W7 (p-value + AIC/BIC), optionally a short loop that automates the same steps |
 | Ridge | named only | `linear_model.Ridge` / `RidgeCV(cv=10)` used exactly like `Lasso` / `LassoCV` in W7 |
-| Elastic net | named only | **not used** (decision 2026-09-27: not covered in the tutorials; did not beat the lasso) |
+| Elastic net | named only | `ElasticNet(alpha, l1_ratio)` in a Pipeline, manual CV loop over α and l1_ratio (covered in Lectures 6–7) |
 | `StandardScaler` | named only | not needed: use the W7 manual `mu` / `sigma` standardisation |
 | Scaling inside CV folds | not done in W7 (W7 standardises the whole training set once) | **Decided (2026-09-26): use a scikit-learn `Pipeline` so that standardisation is re-fitted inside each CV fold.** Marked `# NOTE: not from tutorial` in the notebook. |
 
@@ -250,6 +250,6 @@ Methods in the current scaffold that do **not** appear in any tutorial and will 
 | Item | Why | Basis |
 |---|---|---|
 | `Pipeline` (`make_pipeline`) + `StandardScaler` | standardisation re-fitted inside each CV fold (decision at Checkpoint 0) | W7 standardises manually |
-| `Ridge` with a manual CV loop over λ (also used for `Lasso`) | ridge is in Lectures 6–7 but has no tutorial code; the manual loop avoids the inner CV of `LassoCV`/`RidgeCV` (no leakage) | W5 manual loop over k; W7 `Lasso(alpha=...)` |
+| `Ridge`, `ElasticNet` with a manual CV loop over λ (also used for `Lasso`) | in Lectures 6–7 but no tutorial code; the manual loop avoids the inner CV of `LassoCV`/`RidgeCV` (no leakage) | W5 manual loop over k; W7 `Lasso(alpha=...)` |
 | forward/backward stepwise loops (RSS within a step, AIC/BIC along the path) | Lecture 4–5 FSS/BSS algorithms | W7 does backward elimination manually |
 | `itertools.combinations` for best subset | lists all subsets of each size (Lecture 4–5 best subset) | – |

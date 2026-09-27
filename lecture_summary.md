@@ -51,6 +51,6 @@ Source: `lectures/QBUS2820-01.pdf`, `-02`, `-03`, `-0405`, `-0607`. This file st
 | Interaction terms, keeping main effects | W2 interaction effects, hierarchy principle |
 | Screening candidate terms by AIC | W4–5 AIC ("most predictive model"); W2 "trial and error" |
 | Final model choice by 10-fold CV MSE | W4–5 cross-validation |
-| Ridge / lasso on standardised expanded features (elastic net not used) | W6–7 |
+| Ridge / lasso / elastic net on standardised expanded features | W6–7 |
 | KNN with Mahalanobis or normalised distance | W3 |
 | Bedrooms–FloorArea correlation 0.88 | W6–7 multicollinearity → ridge |

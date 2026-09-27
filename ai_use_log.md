@@ -139,3 +139,7 @@ chart; updated `results_log.md` and `tutorial_patterns.md`.
   3.5 forward, 3.6 backward, 3.7 ridge/lasso/elastic net, 3.8 KNN (each evaluated by CV immediately), 3.9 comparison.
   Results unchanged.
 - Decision (mine): remove the elastic net (not covered in my tutorials; it did not beat the lasso). Section 3.7 now has ridge and lasso only.
+- Decision (mine): add the elastic net back (it is in Lectures 6–7), and use the EDA interaction findings explicitly in a
+  model. The AI restored the elastic net and added "3.5 M3: EDA-driven OLS" (squared terms from 2.6/2.7 and interactions
+  from 2.9, with a table linking each term to its EDA evidence, p-values and CV MSE 2075.50); later models renumbered
+  (M4 forward, M5 backward, M6 ridge/lasso/elastic net, M7 KNN; Section 3.10 comparison).
