@@ -155,3 +155,4 @@ chart; updated `results_log.md` and `tutorial_patterns.md`.
 - Decision (mine): after reviewing what M3 does (EDA-driven terms; bridge between EDA and stepwise selection), I decided to keep M3.
 - M4 (forward stepwise): added the missing `# NOTE: not from tutorial` line and line comments; results unchanged.
 - Decision (mine): AIC/BIC in M4/M5 now computed with the Tutorial 6 formula (n*log(RSS/n) + penalty*d, d = intercept + slopes + error variance) via a small `aic_bic` function, instead of statsmodels `est.aic`/`est.bic`. Values differ by a constant only; selected terms and CV MSEs unchanged. Added NOTE line and comments to M5.
+- Decision (mine): shortened the AIC/BIC function to the Tutorial 6 formula using sigma2_hat = est.ssr / n (no extra sklearn refit). Correction: est.aic/est.bic do not appear in the tutorials (Tutorial 7 only reads AIC/BIC from est.summary()), so the Tutorial 6 formula is kept. Results unchanged.
