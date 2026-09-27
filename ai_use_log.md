@@ -119,3 +119,13 @@ M0 null model, M1 OLS, M2 AIC-screened OLS, M3 backward selection (AIC and BIC),
 Pipeline, M5 KNN with k chosen by CV, comparison table and bar chart; `results_log.md`. The AI checked that data-driven
 term selection was optimistic when done on all data and made M2/M3 selection nested inside the CV folds.
 **Decisions I made myself**: overall approach (base model, tutorial models, pick the best). Final model choice pending (Checkpoint 2).
+
+## 2026-09-27 (Phase 2 — restructure)
+**What I asked**: restructure the modelling as "build candidate models first (M0, best subset over 128 subsets of the
+7 predictors, stepwise, ...), then validate all with CV and choose"; forward and backward stepwise each with AIC and BIC;
+no standardisation using all data (leakage).
+**What the AI produced**: rewrote Section 3: 3.1 set-up (`make_features`, `kf`), 3.2 model building (M0, M1, best subset
+M2, forward stepwise M3, backward stepwise M4, ridge/lasso/elastic net M5 and KNN M6 defined with Pipelines),
+3.3 validation (same 10 folds; best-subset size, λ, l1_ratio and k chosen by manual CV loops), 3.4 comparison table and
+chart; updated `results_log.md` and `tutorial_patterns.md`.
+**Decisions I made myself**: two-stage structure; AIC and BIC versions of both stepwise methods; scaling inside folds only.

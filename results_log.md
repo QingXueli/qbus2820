@@ -1,19 +1,24 @@
 # Results Log — Phase 2 (model comparison)
 
-All models use the same `KFold(10, shuffle=True, random_state=1)` on the 5000 training rows. CV MSE = mean of the
-10 fold MSEs; SE = standard deviation of the fold MSEs / sqrt(10). For M2 and M3 the term selection is repeated inside
-each fold (nested), so the validation fold is never used to choose terms. For M4 the standardisation and the choice of
-λ are inside a Pipeline (re-fitted in each fold). Candidate columns come from `make_features(df)`: 7 predictors +
-4 squared terms (`_SQ`) + 21 pairwise interactions (`_x_`) = 32 columns.
+Workflow (Lectures 4–5): **(1) build candidate models on the training data**, then **(2) validate all of them with the
+same 10-fold CV** (`KFold(10, shuffle=True, random_state=1)`). CV MSE = mean of the 10 fold MSEs;
+SE = standard deviation of the fold MSEs / sqrt(10). Standardisation (ridge, lasso, elastic net, KNN) is inside a
+`Pipeline`, so it is re-fitted on the training part of every fold; hyperparameters (λ, l1_ratio, k) are chosen by a manual
+CV loop over a grid on the same folds (no inner CV, no leakage). Stepwise selection is done on all training data before CV
+(as in the lectures); a nested check earlier showed the effect is small (BIC models unchanged, AIC +4).
+
+Columns from `make_features(df)`: 7 predictors + 4 squared (`_SQ`) + 21 interactions (`_x_`) = 32.
 
 | ID | Model | Features | Hyperparameters | CV MSE | SE | Comment |
 |---|---|---|---|---|---|---|
 | M0 | Null model | none (training mean) | – | 46409.4061 | 842.9485 | benchmark |
-| M1 | OLS | 7 linear terms | – | 3302.3821 | 29.6067 | misses curvature and interactions |
-| M2 | OLS | 7 + terms with AIC drop > 100 when added one at a time (11 on full data) | threshold 100 | 2029.9416 | 20.3766 | screening is slightly optimistic without nesting (2016.86) |
-| M3 | OLS, backward stepwise (AIC) | 7 + 7 selected on full data: DistanceCBD_SQ, FloorArea_SQ, PropertyAge_SQ, DistanceCBD_x_NearTrain, Bedrooms_x_Furnished, Bedrooms_x_HighDemandArea, Furnished_x_HighDemandArea | criterion AIC | 2009.9860 | 26.9744 | 6–8 terms kept across folds |
-| **M3** | **OLS, backward stepwise (BIC)** | **7 + 6 selected: DistanceCBD_SQ, FloorArea_SQ, PropertyAge_SQ, DistanceCBD_x_NearTrain, Bedrooms_x_Furnished, Bedrooms_x_HighDemandArea** | criterion BIC | **2005.6203** | 27.4624 | lowest CV MSE; same 6 terms chosen in every fold |
-| M4 | Lasso (standardised) | 32 columns | α = 0.0720 (CV) | 2012.1438 | 25.6644 | |
-| M4 | Elastic net (standardised) | 32 columns | α = 0.0720, l1_ratio = 1 (CV) | 2012.1438 | 25.6644 | CV chose l1_ratio = 1, i.e. the lasso |
-| M4 | Ridge (standardised) | 32 columns | α = 0.5179 (CV) | 2018.0675 | 27.2604 | |
-| M5 | KNN (standardised, Euclidean) | 7 predictors | k = 7 (CV over 1–50) | 3438.6270 | 69.4793 | worse than linear OLS |
+| M1 | OLS | 7 linear terms | – | 3302.3821 | 29.6067 | |
+| M2 | Best subset (7 predictors, 128 subsets) | best size by CV = all 7 | size = 7 | 3302.3821 | 29.6067 | every predictor is useful; identical to M1 |
+| M3 | Forward stepwise (AIC) | 7 + 7: DistanceCBD_SQ, Bedrooms_x_HighDemandArea, FloorArea_SQ, DistanceCBD_x_NearTrain, Bedrooms_x_Furnished, PropertyAge_SQ, Furnished_x_HighDemandArea | – | 2005.8861 | 26.4687 | same terms as backward (AIC) |
+| **M3** | **Forward stepwise (BIC)** | **7 + 6: the above without Furnished_x_HighDemandArea** | – | **2005.6203** | 27.4624 | same terms as backward (BIC); lowest CV MSE |
+| M4 | Backward stepwise (AIC) | same 7 extra terms as forward (AIC) | – | 2005.8861 | 26.4687 | |
+| **M4** | **Backward stepwise (BIC)** | same 6 extra terms as forward (BIC) | – | **2005.6203** | 27.4624 | lowest CV MSE |
+| M5 | Lasso (standardised) | 32 columns | α = 0.0788 | 2012.2895 | 25.5644 | |
+| M5 | Elastic net (standardised) | 32 columns | α = 0.0010, l1_ratio = 0.8 | 2017.8816 | 26.9696 | α at the lower end of the grid → almost no penalty, ≈ full OLS |
+| M5 | Ridge (standardised) | 32 columns | α = 0.3857 | 2017.8831 | 27.2966 | |
+| M6 | KNN (standardised, Euclidean) | 7 predictors | k = 7 | 3438.6270 | 69.4793 | worse than linear OLS |
