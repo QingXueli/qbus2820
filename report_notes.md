@@ -122,6 +122,8 @@ the assignment requires). Sherry writes the report prose herself.
 - Stepwise selection uses all training data before CV, so its CV MSE may be slightly optimistic (a nested check earlier
   gave BIC unchanged, AIC 2009.99 vs 2005.89).
 - Possible capping of `DistanceCBD` (40 km) and `FloorArea` (35 m²) is not modelled explicitly.
-- Only pairwise interactions and squared terms were considered.
+- Only pairwise interactions and squared terms were considered. Robustness check (scratch, not in the notebook): adding
+  any of the 35 three-way interactions (with their two-way sub-terms, hierarchy principle) to the BIC model did not lower
+  the CV MSE (best 2005.7548 vs 2005.6203; all differences far below 1 SE), so higher-order interactions are not used.
 - Elastic net chose the smallest λ on the grid (boundary).
 - Residual standard deviation ≈ 45 AUD may be close to the irreducible noise.
