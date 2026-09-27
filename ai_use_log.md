@@ -143,3 +143,4 @@ chart; updated `results_log.md` and `tutorial_patterns.md`.
   model. The AI restored the elastic net and added "3.5 M3: EDA-driven OLS" (squared terms from 2.6/2.7 and interactions
   from 2.9, with a table linking each term to its EDA evidence, p-values and CV MSE 2075.50); later models renumbered
   (M4 forward, M5 backward, M6 ridge/lasso/elastic net, M7 KNN; Section 3.10 comparison).
+- Decision (mine): keep M3 (EDA-driven OLS) — it tests the EDA hypotheses and links the EDA to the modelling.
