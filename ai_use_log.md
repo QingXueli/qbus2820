@@ -183,3 +183,7 @@ chart; updated `results_log.md` and `tutorial_patterns.md`.
   Sherry). With the final cell uncommented, a scratch run with a fake test file gave test_error 2034.7045 (same as the repo notebook).
 - The AI added a report outline mapped to the marking criteria and a draft AI-use statement to report_notes.md. Sherry writes the report.
 - Sherry asked whether combining models (e.g. polynomial + lasso) could lower the CV MSE. The AI tested cubic terms, cap indicators, degree-3 polynomial + lasso, averaging OLS and lasso predictions, and a log response (scratch only); none improved the BIC model beyond noise. Recorded in report_notes.md.
+- Report: Sherry wrote a Chinese draft of the executive summary; the AI gave feedback and, at her request, revised her draft
+  (added MSE definition, feature list, EDA link, null and EDA-driven models, 1-SE selection rule, SE and % vs null model,
+  replaced the unsupported ranking of drivers with dollar effects, added interaction numbers and an optional application/
+  limitation paragraph). Sherry will translate it into English herself.
