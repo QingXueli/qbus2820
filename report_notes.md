@@ -101,10 +101,22 @@ the assignment requires). Sherry writes the report prose herself.
   2401.54 vs 2472.43 at λ = 100, 3800.09 vs 3907.53 at λ = 1000. The small gap at small λ means OLS has little variance to
   remove; larger λ mainly adds bias (Lectures 6–7: U-shaped test MSE, minimum here at the left end).
 
-### Recommended final model
-- OLS with 7 main effects + `DistanceCBD_SQ`, `FloorArea_SQ`, `PropertyAge_SQ`, `Bedrooms_x_HighDemandArea`,
-  `Bedrooms_x_Furnished`, `DistanceCBD_x_NearTrain`. Lowest CV MSE, simplest among models within 1 SE, interpretable.
-  (Pending Sherry's confirmation.)
+### Final model (chosen by Sherry: M4, forward stepwise with BIC; same terms as M5 BIC)
+- OLS with 7 main effects + `DistanceCBD_SQ`, `Bedrooms_x_HighDemandArea`, `FloorArea_SQ`, `DistanceCBD_x_NearTrain`,
+  `Bedrooms_x_Furnished`, `PropertyAge_SQ` (13 slopes + intercept). Lowest CV MSE 2005.6203 (SE 27.4624); simplest model
+  within 1 SE of the best; forward and backward agree.
+- Refit on all 5000 rows (Lectures 4–5): R² = 0.9570; residual standard error = 44.7225 AUD; training MSE = 1994.5021.
+  All coefficients p < 0.001.
+- Coefficients: const 508.7797; DistanceCBD −24.8073; Bedrooms 69.8025; FloorArea 5.1093; PropertyAge −2.1358;
+  NearTrain 44.8414; Furnished 48.9324; HighDemandArea 84.5135; DistanceCBD_SQ 0.2943; Bedrooms_x_HighDemandArea 31.4845;
+  FloorArea_SQ −0.0118; DistanceCBD_x_NearTrain 2.7482; Bedrooms_x_Furnished 16.6443; PropertyAge_SQ 0.0084.
+- Effects for an average property (one-unit change or 0→1, others fixed): DistanceCBD −15.2928; Bedrooms +89.1557;
+  FloorArea +3.0293; PropertyAge −1.7943; NearTrain +81.9690; Furnished +88.2596; HighDemandArea +158.9050 (AUD/week).
+- Interaction readings: extra bedroom worth +31.48 more in high-demand areas, +16.64 more if furnished; train premium
+  = 44.84 + 2.75 × DistanceCBD (≈ 58.6 at 5 km, ≈ 127.3 at 30 km).
+- Residuals: no pattern vs fitted; skewness −0.0131, kurtosis 2.9714 (≈ normal).
+- Test predictions: 1000 rows, mean 854.9277, min 358.8839, max 1531.6752.
+- Expected test MSE ≈ CV MSE ≈ 2005.6 (≈ \$44.8 per week typical error), assuming the test data follow the training distribution (Section 2.4).
 
 ---
 
@@ -116,6 +128,8 @@ the assignment requires). Sherry writes the report prose herself.
 | Box plots (1×4) | 2.7 | Weekly rent by number of bedrooms and binary predictors |
 | Correlation heatmap / bar chart | 2.8 | Correlations between variables / with weekly rent |
 | Interaction plots (1×4) | 2.9 | Separate linear fits by group: non-parallel lines suggest interactions |
+| Final-model coefficient table + effects table | 4.1–4.2 | Coefficients of the final model (refitted on all 5000 rows) and predicted change in weekly rent for an average property |
+| Residual plots (1×2) | 4.3 | Residuals of the final model against fitted values, and their distribution |
 | Model comparison table + dot plot | 3.10 | 10-fold CV MSE of the best models (dots) with ±1 SE (lines); the shaded band marks models within one standard error of the best |
 
 ---

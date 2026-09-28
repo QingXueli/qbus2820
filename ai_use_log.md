@@ -169,3 +169,10 @@ chart; updated `results_log.md` and `tutorial_patterns.md`.
 - M6: fuller English line comments added to all five cells at my request (results unchanged).
 - Decision (mine): no bias–variance plot for ridge; the training vs CV MSE numbers are kept in report_notes.md for the report.
 - Model comparison plot redesigned at my request: dot-and-whisker (CV MSE ± 1 SE) instead of bars cut at 1900, coloured by model family, value labels, shaded one-standard-error band; result note corrected (M3 is outside the 1-SE band).
+
+### Phase 3 (final model)
+- Decision (mine): final model = M4 (forward stepwise, BIC).
+- The AI added Section 4 to the notebook: refit on all 5000 rows (statsmodels table + scikit-learn `final_model`),
+  effects for an average property, residual diagnostics, the prediction CSV with assert checks, and the marker-only final
+  cell (appended unexecuted). It tested the final cell in a scratch copy with a fake `WeeklyRent_test.csv` built from training
+  rows 4000–4999 (output matched an independent calculation), deleted the fake file, and re-ran all other cells without errors.

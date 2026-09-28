@@ -30,3 +30,9 @@ M6 (updated): ridge and lasso λ chosen by AIC(λ)/BIC(λ) with effective degree
 | M6 | Ridge (AIC) | 32 columns, standardised | α = 0.5736, df = 31.61 | 2017.8835 | 27.1835 | |
 | M6 | Ridge (BIC) | 32 columns, standardised | α = 1.8874, df = 31.05 | 2018.6737 | 26.4942 | no zero coefficients |
 | M6 | Elastic net (CV) | 32 columns, standardised | α = 0.0100, l1_ratio = 0.9 | 2022.4385 | 25.0940 | α at the grid minimum |
+
+## Final model (Phase 3)
+M4 forward stepwise (BIC), 7 predictors + 6 extra terms, refitted on all 5000 rows: R² 0.9570, residual SE 44.7225,
+training MSE 1994.5021, 10-fold CV MSE 2005.6203 (SE 27.4624). Prediction file: 1000 rows, one column `WeeklyRent`.
+Final cell tested in a scratch copy with a fake `WeeklyRent_test.csv` (training rows 4000–4999): test_error 2034.7045 equals an
+independent statsmodels calculation; fake file deleted.
