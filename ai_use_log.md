@@ -188,3 +188,4 @@ chart; updated `results_log.md` and `tutorial_patterns.md`.
   replaced the unsupported ranking of drivers with dollar effects, added interaction numbers and an optional application/
   limitation paragraph). Sherry will translate it into English herself.
 - Report: at Sherry's request the AI translated her revised (shortened) Chinese executive summary into English (about 300 words).
+- Report: Sherry wrote a Chinese draft of Section 1 (Background and Problem Formulation); at her request the AI revised it (context sentence, three concrete uses, test-set/CV sentence, simplicity rule, report-structure sentence), translated it into English and supplied Table 1 (variable descriptions).
