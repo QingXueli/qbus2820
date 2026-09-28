@@ -182,3 +182,4 @@ chart; updated `results_log.md` and `tutorial_patterns.md`.
   from a clean kernel; the marker-only final cell was commented out and executed, with an empty cell after it (to be fixed by
   Sherry). With the final cell uncommented, a scratch run with a fake test file gave test_error 2034.7045 (same as the repo notebook).
 - The AI added a report outline mapped to the marking criteria and a draft AI-use statement to report_notes.md. Sherry writes the report.
+- Sherry asked whether combining models (e.g. polynomial + lasso) could lower the CV MSE. The AI tested cubic terms, cap indicators, degree-3 polynomial + lasso, averaging OLS and lasso predictions, and a log response (scratch only); none improved the BIC model beyond noise. Recorded in report_notes.md.

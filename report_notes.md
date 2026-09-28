@@ -142,7 +142,11 @@ the assignment requires). Sherry writes the report prose herself.
   any of the 35 three-way interactions (with their two-way sub-terms, hierarchy principle) to the BIC model did not lower
   the CV MSE (best 2005.7548 vs 2005.6203; all differences far below 1 SE), so higher-order interactions are not used.
 - Elastic net chose the smallest λ on the grid (boundary).
-- Residual standard deviation ≈ 45 AUD may be close to the irreducible noise.
+- Residual standard deviation ≈ 45 AUD may be close to the irreducible noise. Further attempts (scratch, not in the notebook;
+  same 10-fold CV) did not improve on the BIC model (2005.6203): + cubic terms 2007.6558; + cap indicators (DistanceCBD = 40,
+  FloorArea = 35) 2005.4275 (−0.19, negligible); degree-3 polynomial of all 7 predictors + lasso 2028.8461 (α = 0.05);
+  average of OLS-BIC and lasso predictions 2008.0903; log-transformed response (back-transformed) 2891.9949.
+  Training MSE 1994.5021 ≈ CV MSE, residuals patternless and normal → remaining error looks like noise (σ² term).
 
 ---
 
