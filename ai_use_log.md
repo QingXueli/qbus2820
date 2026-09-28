@@ -197,3 +197,4 @@ chart; updated `results_log.md` and `tutorial_patterns.md`.
 - Report: at Sherry's request the AI applied its review to her EDA draft and returned the full revised Chinese text (4.1–4.6, captions, Table 3).
 - Report: at Sherry's request the AI translated the revised EDA section into English (lecture references removed).
 - Report: Sherry wrote the modelling section (Chinese draft, 5.1–5.9); at her request the AI polished it into English, fixed numbering and garbled formulas, and added missing numbers (M4 CV MSE/SE, 4 d.p. percentages, SEs), the hierarchy principle, df(lambda) formula, and a bias-variance explanation for M6.
+- Report: the AI rendered the report formulas (test MSE, CV MSE/SE, AIC/BIC, ridge, lasso, df(lambda), AIC/BIC(lambda)) as PNG images in report_tables/formulas/ for pasting into Google Docs.
