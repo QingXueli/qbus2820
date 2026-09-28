@@ -195,3 +195,4 @@ chart; updated `results_log.md` and `tutorial_patterns.md`.
 - Report: the AI created report_tables/TableA1_train_vs_test.docx (training vs test predictor statistics, 4 d.p.) and advised on figure/table placement.
 - Report: Sherry wrote the EDA section (Chinese draft with figures); the AI reviewed it (corrected the DistanceCBD x NearTrain reading, missing third implication, 4 d.p. values, duplicates, raw output, caption length) and suggested Table 3 (candidate features).
 - Report: at Sherry's request the AI applied its review to her EDA draft and returned the full revised Chinese text (4.1–4.6, captions, Table 3).
+- Report: at Sherry's request the AI translated the revised EDA section into English (lecture references removed).
