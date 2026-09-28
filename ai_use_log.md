@@ -205,3 +205,4 @@ chart; updated `results_log.md` and `tutorial_patterns.md`.
 - Report: at Sherry's request the AI translated the revised limitations, future work and conclusion into English.
 - Report: the AI updated the AI-use statement draft (adds report review/translation) in report_notes.md for Sherry to review.
 - Report: Sherry shared her full draft (over 15 pages); the AI reviewed it against the spec and marking criteria, proposed cuts and fixes, and created Table5_coefficients.docx, Table6_effects.docx and Figure11_model_comparison.png.
+- Report: Sherry deleted Figures 7 and 10; the AI gave the new figure numbering, a caption for the new model-comparison figure, and split the executive summary into four paragraphs. At her request it then translated the executive summary into Chinese so she could check its meaning.
