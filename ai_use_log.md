@@ -193,3 +193,4 @@ chart; updated `results_log.md` and `tutorial_patterns.md`.
 - Report: Sherry wrote a Chinese draft of the data section (structure, quality, train vs test); the AI suggested edits, drafted the outlier subsection from the notebook results at her request, created report_tables/Table2_summary_statistics.docx (4 d.p.) and explained how to add figure/table captions in Word.
 - Report: at Sherry's request the AI translated the revised Section 2 (Data Understanding and Cleaning, incl. the outlier subsection) into English.
 - Report: the AI created report_tables/TableA1_train_vs_test.docx (training vs test predictor statistics, 4 d.p.) and advised on figure/table placement.
+- Report: Sherry wrote the EDA section (Chinese draft with figures); the AI reviewed it (corrected the DistanceCBD x NearTrain reading, missing third implication, 4 d.p. values, duplicates, raw output, caption length) and suggested Table 3 (candidate features).
