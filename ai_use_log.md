@@ -187,3 +187,4 @@ chart; updated `results_log.md` and `tutorial_patterns.md`.
   (added MSE definition, feature list, EDA link, null and EDA-driven models, 1-SE selection rule, SE and % vs null model,
   replaced the unsupported ranking of drivers with dollar effects, added interaction numbers and an optional application/
   limitation paragraph). Sherry will translate it into English herself.
+- Report: at Sherry's request the AI translated her revised (shortened) Chinese executive summary into English (about 300 words).
