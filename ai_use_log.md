@@ -204,3 +204,4 @@ chart; updated `results_log.md` and `tutorial_patterns.md`.
 - Report: Sherry wrote the conclusion and limitations (Chinese draft); the AI revised them (8 model classes for consistency, added SE/typical error/R2, removed unsupported ranking, consequences for each limitation, future work, suggested order).
 - Report: at Sherry's request the AI translated the revised limitations, future work and conclusion into English.
 - Report: the AI updated the AI-use statement draft (adds report review/translation) in report_notes.md for Sherry to review.
+- Report: Sherry shared her full draft (over 15 pages); the AI reviewed it against the spec and marking criteria, proposed cuts and fixes, and created Table5_coefficients.docx, Table6_effects.docx and Figure11_model_comparison.png.
