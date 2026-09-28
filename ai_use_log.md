@@ -192,3 +192,4 @@ chart; updated `results_log.md` and `tutorial_patterns.md`.
 - Report: the AI created report_tables/Table1_variables.docx (compact three-line version of Table 1, 10 pt, no extra spacing) for Sherry to paste into her report.
 - Report: Sherry wrote a Chinese draft of the data section (structure, quality, train vs test); the AI suggested edits, drafted the outlier subsection from the notebook results at her request, created report_tables/Table2_summary_statistics.docx (4 d.p.) and explained how to add figure/table captions in Word.
 - Report: at Sherry's request the AI translated the revised Section 2 (Data Understanding and Cleaning, incl. the outlier subsection) into English.
+- Report: the AI created report_tables/TableA1_train_vs_test.docx (training vs test predictor statistics, 4 d.p.) and advised on figure/table placement.
