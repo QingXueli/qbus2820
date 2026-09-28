@@ -143,3 +143,35 @@ the assignment requires). Sherry writes the report prose herself.
   the CV MSE (best 2005.7548 vs 2005.6203; all differences far below 1 SE), so higher-order interactions are not used.
 - Elastic net chose the smallest λ on the grid (boundary).
 - Residual standard deviation ≈ 45 AUD may be close to the irreducible noise.
+
+---
+
+## 5. Report outline (mapped to the marking criteria; ≤ 15 pages incl. figures, tables, appendix and AI statement)
+
+| # | Section | Pages | Marking criterion | Content (notebook source) |
+|---|---|---|---|---|
+| 0 | Title + Executive summary | 0.5 | Exec summary (3) | Goal; data; final model; CV MSE 2005.6203 (≈ $45/week); 2–3 key drivers |
+| 1 | Background and problem formulation | 0.5 | Exec summary (3) | Rental platform in Harbour City; predict WeeklyRent; test MSE is the metric; who uses the model |
+| 2 | Data understanding and cleaning | 1 | Exec summary (3) | 5000/1000 rows, 7 covariates; no missing/duplicates; possible caps (40 km, 35 m²); train vs test similar (2.1–2.4) |
+| 3 | Exploratory data analysis | 2.5–3 | Exec summary (3) | Response distribution (2.5); curvature (2.6); group differences (2.7); correlation 0.8821 (2.8); interactions (2.9); baseline OLS + outliers (2.10); EDA → candidate features |
+| 4 | Methodology | 2.5–3 | Modelling (8) | 10-fold CV set-up, SE, 1-SE rule; features (make_features, hierarchy); M0–M7 each with *why*; λ by AIC/BIC with df(λ); leakage control (pipeline) |
+| 5 | Results and model selection | 2–2.5 | Modelling (8) | Comparison table (4 d.p.) + dot plot; forward = backward; M6 no gain (bias–variance numbers); KNN worse; choice = M4 BIC |
+| 6 | Final model and business interpretation | 1.5–2 | Modelling (8) | Refit on 5000 rows; coefficient table; effects table; interaction insights; residual plots |
+| 7 | Conclusion, limitations, future work | 0.5–1 | Modelling (8) | Answer the business question; limitations list (§4); no claims without evidence |
+| 8 | AI-use statement | 0.25 | required (−2 if missing) | See §6 below |
+| – | Appendix (optional) | ≤ 1 | – | Full coefficient table, stepwise paths, M6 AIC/BIC plot |
+
+Presentation (3 marks): numbered figures/tables with informative captions; 4 d.p. for numerical results; formulas typeset;
+one idea per paragraph; do not paste raw notebook output.
+
+---
+
+## 6. AI-use statement (draft — Sherry to review and edit)
+
+I used Claude Code, an AI coding assistant published by Anthropic, running the Claude Opus 5.5 model (model ID
+claude-opus-5-5), during this assignment. I used it to (i) plan the project and break it into steps; (ii) explain lecture and
+tutorial concepts (e.g. cross-validation, AIC/BIC, effective degrees of freedom, ridge and lasso) and the meaning of each line of
+code; (iii) draft Python code in the style of my tutorial notebooks, which I reviewed, ran and modified; and (iv) organise the
+numerical results and suggest figures for this report. All modelling decisions (e.g. the features considered, the λ-selection
+method, and the final model) were made by me, and I wrote the report text myself. A record of my AI use and the AI-generated
+outputs has been kept as required.
