@@ -203,3 +203,4 @@ chart; updated `results_log.md` and `tutorial_patterns.md`.
 - Report: Sherry wrote Section 7 (business interpretation); the AI checked her numbers (all correct), suggested edits (method sentence for the effects table, no ranking across units, 4 d.p., hedged causal wording, flagging thresholds 89.4450-134.1675) and translated the revised section into English.
 - Report: Sherry wrote the conclusion and limitations (Chinese draft); the AI revised them (8 model classes for consistency, added SE/typical error/R2, removed unsupported ranking, consequences for each limitation, future work, suggested order).
 - Report: at Sherry's request the AI translated the revised limitations, future work and conclusion into English.
+- Report: the AI updated the AI-use statement draft (adds report review/translation) in report_notes.md for Sherry to review.

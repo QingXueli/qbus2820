@@ -170,12 +170,13 @@ one idea per paragraph; do not paste raw notebook output.
 
 ---
 
-## 6. AI-use statement (draft — Sherry to review and edit)
+## 6. AI-use statement (final draft — Sherry to review and edit)
 
 I used Claude Code, an AI coding assistant published by Anthropic, running the Claude Opus 5.5 model (model ID
-claude-opus-5-5), during this assignment. I used it to (i) plan the project and break it into steps; (ii) explain lecture and
-tutorial concepts (e.g. cross-validation, AIC/BIC, effective degrees of freedom, ridge and lasso) and the meaning of each line of
-code; (iii) draft Python code in the style of my tutorial notebooks, which I reviewed, ran and modified; and (iv) organise the
-numerical results and suggest figures for this report. All modelling decisions (e.g. the features considered, the λ-selection
-method, and the final model) were made by me, and I wrote the report text myself. A record of my AI use and the AI-generated
-outputs has been kept as required.
+claude-opus-5-5), during this assignment. I used it to: (i) plan the project and break it into steps; (ii) explain lecture and
+tutorial concepts (e.g. cross-validation, AIC/BIC, effective degrees of freedom, ridge and lasso) and the meaning of each line
+of code; (iii) draft Python code in the style of my tutorial notebooks, which I reviewed, ran and modified; (iv) organise the
+numerical results, suggest figures and format tables for this report; and (v) review my own draft text, suggest improvements,
+and translate my Chinese drafts into English. All modelling decisions, including the features considered, the method for
+choosing the penalty parameter and the final model, were made by me, and I checked and edited all text and results in this
+report. A record of my AI use and copies of the AI-generated outputs have been kept, as required.
