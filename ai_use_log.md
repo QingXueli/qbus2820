@@ -190,3 +190,4 @@ chart; updated `results_log.md` and `tutorial_patterns.md`.
 - Report: at Sherry's request the AI translated her revised (shortened) Chinese executive summary into English (about 300 words).
 - Report: Sherry wrote a Chinese draft of Section 1 (Background and Problem Formulation); at her request the AI revised it (context sentence, three concrete uses, test-set/CV sentence, simplicity rule, report-structure sentence), translated it into English and supplied Table 1 (variable descriptions).
 - Report: the AI created report_tables/Table1_variables.docx (compact three-line version of Table 1, 10 pt, no extra spacing) for Sherry to paste into her report.
+- Report: Sherry wrote a Chinese draft of the data section (structure, quality, train vs test); the AI suggested edits, drafted the outlier subsection from the notebook results at her request, created report_tables/Table2_summary_statistics.docx (4 d.p.) and explained how to add figure/table captions in Word.
