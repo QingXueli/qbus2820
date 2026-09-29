@@ -179,6 +179,4 @@ of code; (iii) draft Python code in the style of my tutorial notebooks, which I 
 numerical results, suggest figures and format tables for this report; and (v) review my own draft text, suggest improvements,
 and translate my Chinese drafts into English. All modelling decisions, including the features considered, the method for
 choosing the penalty parameter and the final model, were made by me, and I checked and edited all text and results in this
-report. I also used GPTinf (https://www.gptinf.com), an online writing tool, to check the grammar of some sentences in
-my report; I reviewed every suggested change and kept only those that did not alter the meaning. A record of my AI use and
-copies of the AI-generated outputs have been kept, as required.
+report. A record of my AI use and copies of the AI-generated outputs have been kept, as required.
