@@ -176,7 +176,8 @@ I used Claude Code, an AI coding assistant published by Anthropic, running the C
 claude-opus-5-5), during this assignment. I used it to: (i) plan the project and break it into steps; (ii) explain lecture and
 tutorial concepts (e.g. cross-validation, AIC/BIC, effective degrees of freedom, ridge and lasso) and the meaning of each line
 of code; (iii) draft Python code in the style of my tutorial notebooks, which I reviewed, ran and modified; (iv) organise the
-numerical results, suggest figures and format tables for this report; and (v) review my own draft text, suggest improvements,
-and translate my Chinese drafts into English. All modelling decisions, including the features considered, the method for
+numerical results, suggest figures and format tables for this report; and (v) review my own draft text, improve its language and clarity,
+point out points I had missed (e.g. links between sections, limitations and checks of the numbers against my code), and
+translate my Chinese drafts into English. All modelling decisions, including the features considered, the method for
 choosing the penalty parameter and the final model, were made by me, and I checked and edited all text and results in this
 report. A record of my AI use and copies of the AI-generated outputs have been kept, as required.

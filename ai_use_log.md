@@ -215,3 +215,4 @@ chart; updated `results_log.md` and `tutorial_patterns.md`.
 - Notebook: for report Section 7.2 the AI added a cell in 4.2 that computes the marginal effects from the final coefficients (distance slope at 5 and 30 km, floor-area slope at 50 and 150 m², bedroom effect by group), because the draft values had been computed by hand from rounded coefficients. It then reviewed 7.2.
 - AI-use statement: Sherry reported that she also used GPTinf (gptinf.com) for grammar checking. The AI added this to the draft statement in report_notes.md §6 and advised her to describe exactly what the tool was used for and to check the unit's AI policy.
 - AI-use statement: Sherry clarified that she did not use GPTinf (wrong link) but a grammar checker; the AI removed the GPTinf sentence from the draft statement.
+- AI-use statement: at Sherry's request, item (v) now also states that the AI improved the language of her drafts and pointed out points she had missed.
