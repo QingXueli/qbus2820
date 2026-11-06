@@ -22,3 +22,8 @@ Tool: Claude Code (Anthropic), running in a Claude Code on the web session.
 - Keep Assignment 2 in a separate `assignment2/` folder in the same repo.
 - Use a new `CLAUDE.md` for Assignment 2 with the same phased, tutorial-first workflow.
 - Upload the time-series tutorials and lectures before any modelling starts.
+
+**Later on 2026-11-06**
+- I uploaded the Week 8 tutorial files (`Tutorial_08.ipynb`, `Tutorial_08_task.ipynb`,
+  `Tutorial_08_task_solution.ipynb`, `BatonRouge.csv`, `Hitters.csv`); the AI saved them to
+  `assignment2/tutorials/week08/` and noted that Week 8 covers ridge/lasso, not time series.
